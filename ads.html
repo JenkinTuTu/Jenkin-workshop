@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ads – Jenkin</title>
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    /* —— 局部样式（与现站一致的暗金风+交互）—— */
+    .page-wrap { max-width: 1600px; margin: 0 auto; padding: 40px 24px 80px; }
+    .section-title { color: var(--text-colour); font-size: 1.4rem; letter-spacing: .04em; margin: 10px 0 20px; opacity:.9; }
+
+    /* 顶部导航里的 logo 不要下划线（与全站保持一致） */
+    .logo, .logo:link, .logo:visited, .logo:hover, .logo:focus { text-decoration: none; color: var(--accent-colour); }
+
+    /* 筛选按钮 */
+    .filters { display:flex; flex-wrap:wrap; gap:12px; margin: 10px 0 24px; }
+    .filter-btn {
+      border:1px solid rgba(212,160,23,.45);
+      background: transparent; color: var(--text-colour);
+      padding: 8px 14px; border-radius: 999px; cursor: pointer;
+      font-size:.95rem; transition: background .2s ease, color .2s ease, opacity .2s ease;
+    }
+    .filter-btn.active, .filter-btn:hover { background: rgba(212,160,23,.18); color:#fff; }
+    .filter-btn:focus-visible { outline:2px solid rgba(212,160,23,.6); outline-offset:2px; }
+
+    /* 4 列网格（随宽度自适应） */
+    .ads-grid {
+      display:grid; gap: 24px;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+    }
+    @media (max-width:1200px){ .ads-grid{ grid-template-columns: repeat(3, 1fr);} }
+    @media (max-width:820px){  .ads-grid{ grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width:520px){  .ads-grid{ grid-template-columns: 1fr;} }
+
+    /* 卡片：点击可播放；稳定渲染层，避免文字抖动 */
+    .grid-item { position:relative; overflow:hidden; border-radius:6px; background:#111; cursor:pointer; will-change:opacity, transform; contain:paint; }
+    /* 缩略图：不缩放，悬停只调亮度，避免 reflow */
+    .grid-item .thumb{
+      display:block; width:100%; aspect-ratio:16/9; object-fit:cover;
+      transition: filter .25s ease;
+      backface-visibility: hidden;
+    }
+    /* 标题：绝对定位 + translate 精准居中 */
+    .grid-item .overlay{
+      position:absolute; top:50%; left:50%; transform: translate(-50%, -50%);
+      width:92%; text-align:center; color:#fff; font-weight:700; line-height:1.2;
+      letter-spacing:.06em; text-transform:uppercase; opacity:0; transition:opacity .25s ease;
+      pointer-events:none; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    /* 悬停：只调亮度 + 淡入标题 */
+    .grid-item:hover .thumb{ filter: brightness(.28); }
+    .grid-item:hover .overlay{ opacity: 1; }
+    .grid-item .badge {
+      position:absolute; top:10px; left:10px; font-size:.75rem; padding:3px 8px;
+      border-radius:999px; background: rgba(212,160,23,.85); color:#0c0c0f; font-weight:700; letter-spacing:.04em;
+    }
+
+    /* 弹窗播放器（Lightbox） */
+    .lightbox {
+      position: fixed; inset:0; background: rgba(0,0,0,.85);
+      display:none; align-items:center; justify-content:center; z-index: 9999;
+      padding: 24px;
+    }
+    .lightbox.open{ display:flex; }
+    .player-frame{
+      position:relative; width:min(1200px, 92vw); aspect-ratio:16/9; background:#000; border-radius:8px; overflow:hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.5);
+    }
+    .player-frame iframe, .player-frame video{
+      position:absolute; inset:0; width:100%; height:100%; border:0; background:#000;
+    }
+    .lb-close{
+      position:absolute; top:22px; right:22px; background:rgba(0,0,0,.6);
+      color:#fff; border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:8px 12px; cursor:pointer;
+    }
+    .lb-close:hover{ background:rgba(0,0,0,.8); }
+    /* 双语标题分行显示：EN 主行、JA 次行 */
+.grid-item .overlay .en {
+  display:block;
+  font-weight:700;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  margin-bottom: .15em;
+}
+.grid-item .overlay .ja {
+  display:block;
+  font-weight:600;
+  font-size: clamp(.9rem, 1.3vw, 1.05rem);
+  opacity:.92;
+}
+
+/* 若标题过长，保持两端不溢出且自动换行 */
+.grid-item .overlay { width: 92%; word-break: break-word; hyphens: auto; }
+
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="index.html" aria-label="Go to home">JENKIN Workshop</a>
+    <nav>
+      <a href="index.html">work</a>
+      <a href="contact.html">contact</a>
+      <a href="ads.html" style="opacity:.8">ads</a>
+      <span id="tz-right" style="display:inline-block; margin-left:12px;"></span>
+      
+    </nav>
+  </header>
+
+  <main class="page-wrap">
+    <h1 class="section-title">広告作品（按类型筛选 / 点击封面放大播放）</h1>
+
+    <!-- 筛选按钮：data-filter 与卡片的 data-category 对应 -->
+  <div class="filters" role="tablist" aria-label="Category Filters">
+  <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All｜すべて</button>
+  <button class="filter-btn" data-filter="sport"   role="tab">Sport｜スポーツ</button>
+  <button class="filter-btn" data-filter="auto"    role="tab">Auto｜自動車</button>
+  <button class="filter-btn" data-filter="fashion" role="tab">Fashion｜ファッション</button>
+   <button class="filter-btn" data-filter="MV"     role="tab">MV｜ブランド・ドキュメンタリー</button>
+  <button class="filter-btn" data-filter="beauty"  role="tab">Beauty｜美容</button>
+  <button class="filter-btn" data-filter="doc"     role="tab">Branded Doc｜ブランド・ドキュメンタリー</button>
+</div>
+
+
+    <!-- 4 列广告网格：data-category 标记类型；data-* 提供播放源 -->
+<section class="ads-grid">
+
+  <!-- Sport｜スポーツ（Vimeo） -->
+  <article class="grid-item"
+           data-category="sport"
+           data-type="vimeo"
+           data-url="https://vimeo.com/1123469874?fl=pl&fe=sh">
+    <img class="thumb" src="assets/placeholder.png" alt="Sport Ad Cover" loading="lazy">
+    <span class="overlay">
+      <span class="en">PUMA x Hello Sunrise | "Horizon Running Club"</span>
+    </span>
+    <span class="badge">Sport｜スポーツ</span>
+  </article>
+  <!-- Sport｜スポーツ（Vimeo） -->
+    <article class="grid-item"
+           data-category="sport"
+           data-type="vimeo"
+           data-url="https://vimeo.com/1079229723?autoplay=1&muted=1&stream_id=Y2xpcHN8NTY5OTQxMjd8aWQ6ZGVzY3xbXQ%3D%3D">
+
+           <img class="thumb" src="assets/placeholder.png" alt="Sport Ad Cover" loading="lazy">
+    <span class="overlay">
+      <span class="en">MAYHEM</span>
+    </span>
+    <span class="badge">Sport｜スポーツ</span>
+  </article>
+
+  <!-- Auto｜自動車（YouTube） -->
+  <article class="grid-item"
+           data-category="auto"
+           data-type="youtube"
+           data-id="dQw4w9WgXcQ">
+    <img class="thumb" src="assets/placeholder.png" alt="Auto Ad Cover" loading="lazy">
+    <span class="overlay">
+      <span class="en">NIGHT DRIVE</span>
+      <span class="ja">ナイト・ドライブ</span>
+    </span>
+    <span class="badge">Auto｜自動車</span>
+  </article>
+
+  <!-- Fashion｜ファッション（Vimeo 或 YouTube 都可；这里示例 Vimeo 用 data-id） -->
+  <article class="grid-item"
+           data-category="fashion"
+           data-type="vimeo"
+           data-id="987654321">
+    <img class="thumb" src="assets/placeholder.png" alt="Fashion Ad Cover" loading="lazy">
+    <span class="overlay">
+      <span class="en">URBAN LOOKBOOK</span>
+      <span class="ja">アーバン・ルックブック</span>
+    </span>
+    <span class="badge">Fashion｜ファッション</span>
+  </article>
+
+  <!-- Beauty｜美容（本地 MP4） -->
+  <article class="grid-item"
+           data-category="beauty"
+           data-type="mp4"
+           data-src="videos/beauty-cm.mp4"
+           data-poster="assets/beauty-video.png">
+    <img class="thumb" src="assets/beauty-video.png" alt="Beauty Ad Cover" loading="lazy">
+    <span class="overlay">
+      <span class="en">GLOW SERUM</span>
+      <span class="ja">グロウ・セラム</span>
+    </span>
+    <span class="badge">Beauty｜美容</span>
+  </article>
+
+  <!-- Branded Doc｜ブランド・ドキュメンタリー（Vimeo） -->
+  <article class="grid-item"
+           data-category="doc"
+           data-type="vimeo"
+           data-url="https://vimeo.com/1122334455">
+    <img class="thumb" src="assets/placeholder.png" alt="Branded Documentary Cover" loading="lazy">
+    <span class="overlay">
+      <span class="en">THE MAKERS</span>
+      <span class="ja">ザ・メイカーズ</span>
+    </span>
+    <span class="badge">Branded Doc｜ブランド・ドキュメンタリー</span>
+  </article>
+
+</section>
+
+  </main>
+
+  <!-- Lightbox 弹窗播放器 -->
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Video player">
+    <div class="player-frame" id="playerFrame"></div>
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+  </div>
+
+  <script>
+    /* —— 筛选逻辑 —— */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.grid-item');
+
+    filterBtns.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        filterBtns.forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+        btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+        const f = btn.dataset.filter;
+        cards.forEach(c=>{ c.style.display = (f === 'all' || c.dataset.category === f) ? '' : 'none'; });
+      });
+    });
+
+    /* —— Lightbox 播放逻辑 —— */
+    const lb = document.getElementById('lightbox');
+    const frame = document.getElementById('playerFrame');
+    const closeBtn = document.getElementById('lbClose');
+    function openLightbox(html){
+      frame.innerHTML = html;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(){
+      lb.classList.remove('open');
+      frame.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+    lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLightbox(); });
+    closeBtn.addEventListener('click', closeLightbox);
+    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+
+    /* —— 点击封面即播放（事件委托） —— */
+    function parseYouTubeId(url) {
+      try {
+        const u = new URL(url);
+        if (u.hostname.includes('youtu.be')) return u.pathname.slice(1);
+        if (u.hostname.includes('youtube.com')) {
+          const v = u.searchParams.get('v'); if (v) return v;
+          const parts = u.pathname.split('/'); const idx = parts.indexOf('embed');
+          if (idx !== -1 && parts[idx+1]) return parts[idx+1];
+        }
+      } catch(e) {}
+      return null;
+    }
+    document.addEventListener('click', (e) => {
+      const card = e.target.closest('.grid-item');
+      if (!card || e.target.closest('.filters') || e.target.closest('.lightbox')) return;
+
+      const type   = card.dataset.type;
+      const url    = card.dataset.url;
+      const id     = card.dataset.id;
+      const src    = card.dataset.src;
+      const poster = card.dataset.poster || '';
+
+      if (type === 'vimeo') {
+        // 从 url 或 id 中提取数字 ID
+        let vid = id;
+        if (!vid && url) {
+          const m = url.match(/(\d{6,})/); // 取最后一段数字
+          if (m) vid = m[1];
+        }
+        if (!vid) return;
+        openLightbox(
+          `<iframe src="https://player.vimeo.com/video/${vid}?autoplay=1&title=0&byline=0&portrait=0"
+                   allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
+        );
+      } else if (type === 'youtube') {
+        let ytId = id || (url ? parseYouTubeId(url) : null);
+        if (!ytId) return;
+        openLightbox(
+          `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+                   allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`
+        );
+      } else if (type === 'mp4' && src) {
+        openLightbox(
+          `<video controls autoplay playsinline ${poster ? `poster='${poster}'` : ''}>
+             <source src="${src}" type="video/mp4">Your browser does not support HTML5 video.
+           </video>`
+        );
+      }
+    });
+
+    /* —— 自动为 Vimeo / YouTube 卡片填充封面图（懒加载） —— */
+    (function () {
+      const cards = document.querySelectorAll('.grid-item');
+      const fallbackThumb = 'assets/placeholder.png';
+
+      function ytThumb(id){ return { max:`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`, hq:`https://i.ytimg.com/vi/${id}/hqdefault.jpg` }; }
+      function testImage(url){
+        return new Promise(r => { const i = new Image(); i.onload=()=>r(true); i.onerror=()=>r(false); i.src=url; });
+      }
+      async function fetchVimeoThumb(vimeoUrlOrId){
+        let videoUrl = vimeoUrlOrId;
+        if (/^\d+$/.test(vimeoUrlOrId)) videoUrl = `https://vimeo.com/${vimeoUrlOrId}`;
+        const api = `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(videoUrl)}`;
+        const res = await fetch(api, { mode:'cors' });
+        if (!res.ok) throw new Error('Vimeo oEmbed failed');
+        const data = await res.json();
+        return (data.thumbnail_url || '').replace(/\d+x\d+/, '1280');
+      }
+      async function hydrate(card){
+        const img = card.querySelector('.thumb'); if(!img || img.dataset.hydrated==='1') return;
+        const t = card.dataset.type, url = card.dataset.url, id = card.dataset.id;
+        try {
+          if (t === 'youtube') {
+            let ytId = id || (url ? parseYouTubeId(url) : null); if (!ytId) throw 'no id';
+            const set = ytThumb(ytId);
+            img.src = (await testImage(set.max)) ? set.max : set.hq;
+          } else if (t === 'vimeo') {
+            const v = url || id; if (!v) throw 'no id';
+            img.src = await fetchVimeoThumb(v) || fallbackThumb;
+          }
+        } catch(e) {
+          img.src = fallbackThumb;
+        } finally {
+          img.dataset.hydrated = '1';
+        }
+      }
+      const io = new IntersectionObserver(es => es.forEach(en => {
+        if (en.isIntersecting){ hydrate(en.target); io.unobserve(en.target); }
+      }), { rootMargin:'200px 0px' });
+      cards.forEach(c => io.observe(c));
+    })();
+
+  </script>
+  <script>
+(() => {
+  const mount = document.getElementById('tz-right');
+  if (!mount) return; // 没有占位则不执行
+
+  // Shadow DOM 隔离样式，不影响你现有CSS
+  const host = document.createElement('span');
+  mount.appendChild(host);
+  const root = host.attachShadow({mode:'open'});
+
+  root.innerHTML = `
+    <style>
+      .wrap{ display:inline-flex; gap:10px; align-items:center; }
+      .chip{
+        display:inline-flex; gap:6px; align-items:baseline;
+        padding:4px 8px; border-radius:999px;
+        background: rgba(22,22,26,.75);
+        color:#fff;
+        border:1px solid rgba(255,255,255,.12);
+        line-height:1;
+      }
+      .label{ opacity:.85; font-weight:600; font-size:12px; }
+      .time{ font-variant-numeric: tabular-nums; font-weight:700; font-size:13px; }
+      /* 手机端尺寸微调 */
+      @media (max-width:560px){ .chip{ padding:4px 8px; } }
+    </style>
+    <div class="wrap" role="group" aria-label="Timezones">
+      <div class="chip" data-zone="Asia/Shanghai">
+        <span class="label">Shanghai</span>
+        <span class="time">--:--:--</span>
+      </div>
+      <div class="chip" data-zone="Asia/Tokyo">
+        <span class="label">Tokyo</span>
+        <span class="time">--:--:--</span>
+      </div>
+    </div>
+  `;
+
+  // 24小时制英文环境；只渲染时间，不渲染日期
+  const fmtTime = (d,tz) =>
+    new Intl.DateTimeFormat('en-GB', { timeZone: tz, hour12: false, hour:'2-digit', minute:'2-digit', second:'2-digit' }).format(d);
+
+  const chips = root.querySelectorAll('.chip');
+  const tick = () => {
+    const now = new Date();
+    chips.forEach(c => {
+      const tz = c.dataset.zone;
+      c.querySelector('.time').textContent = fmtTime(now, tz);
+    });
+  };
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>

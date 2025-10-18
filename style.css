@@ -1,0 +1,769 @@
+/*
+ * Jenkin Portfolio Site Styles
+ *
+ * This stylesheet defines a minimal, high‑end aesthetic inspired by
+ * Andy Woodward’s portfolio. A dark backdrop provides contrast for
+ * bold thumbnails and warm gold accents. The layout is intentionally
+ * simple so your work is the focus. Two grid sections on the home
+ * page hold advertising and documentary projects, and project pages
+ * feature a landscape video placeholder followed by a 4×3 grid of
+ * stills. Feel free to adjust the CSS variables at the top of this
+ * file to tune the colour palette to your taste.
+ */
+
+/* Theme variables for easy customisation */
+:root {
+  --bg-colour: #0d0d0d;      /* rich charcoal background */
+  --text-colour: #f5f5f5;    /* off‑white text */
+  --accent-colour: #b69a4c;  /* elegant gold for logo and highlights */
+  --link-hover-colour: #d4b96c; /* lighter gold on hover */
+  --input-bg: #2d2d2d;       /* dark grey for form inputs */
+  --button-bg: var(--accent-colour);
+  --button-text: #0d0d0d;    /* dark text on gold buttons */
+}
+/* 让 logo 作为链接时外观不变 */
+.logo, .logo a {
+  color: var(--accent-colour);
+  text-decoration: none;
+}
+.logo:hover, .logo a:hover {
+  opacity: .85;
+}
+/* 仅 Logo 去掉下划线（含 hover/focus/active） */
+.logo,
+.logo:link,
+.logo:visited,
+.logo:hover,
+.logo:active,
+.logo:focus {
+  text-decoration: none;         /* 彻底取消下划线 */
+  color: var(--accent-colour);   /* 保持你的品牌色 */
+  cursor: pointer;
+  transition: opacity .25s ease; /* 保持已有的轻微动效 */
+}
+
+/* Hover 只做轻微透明度，不出现下划线 */
+.logo:hover {
+  opacity: .85;
+  text-decoration: none;
+}
+
+/* 无障碍：键盘焦点高可见，不用下划线，用外发光描边 */
+.logo:focus-visible {
+  outline: 2px solid rgba(212,160,23,.6);  /* 与你的金色系一致 */
+  outline-offset: 3px;
+  text-decoration: none;
+}
+
+/* （可选）若你全站曾有通用规则导致链接 hover 加下划线，请用这条兜底关闭 */
+a:hover {
+  text-decoration: none;
+}
+
+/* （可选）减少动效用户的偏好支持 */
+@media (prefers-reduced-motion: reduce) {
+  .logo { transition: none; }
+}
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg-colour);
+  color: var(--text-colour);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--text-colour);
+  text-decoration: none;
+}
+
+/* Link hover 统一：仅改颜色，不加下划线 */
+a:hover { color: var(--link-hover-colour, #d4b96c); text-decoration: none; }
+
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+}
+
+.logo {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--accent-colour);
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  gap: 50px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+nav a.active {
+  text-decoration: underline;
+}
+
+/* Home page sections */
+.works-section {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 40px 60px;
+}
+
+.works-section + .works-section {
+  margin-top: 20px;
+}
+
+.works-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--accent-colour);
+  text-transform: uppercase;
+}
+
+/* Grids for ads and docs */
+.grid-ads,
+.grid-docs {
+  display: grid;
+  gap: 30px;
+}
+
+/* 4 columns for both sections; row counts defined by number of items */
+.grid-ads {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-docs {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Individual item styling */
+.grid-item {
+  text-align: center;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+.grid-item figcaption {
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/*
+ * Interactive overlay for grid items on the home page.
+ * When the user hovers over a project thumbnail, the image fades
+ * out and a title appears centered on a semi‑transparent overlay,
+ * echoing the small interactions found on Andy Woodward's site.
+ */
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.grid-item a {
+  display: block;
+}
+
+.grid-item img {
+  transition: opacity 0.3s ease;
+}
+
+/* Hide the default figcaption on home page; the overlay will display the title instead */
+.grid-item figcaption {
+  display: none;
+}
+
+.grid-item .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 8px 16px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--accent-colour);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.grid-item:hover img {
+  opacity: 0.3;
+}
+
+.grid-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Project pages */
+.project-header {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px 0;
+  text-align: center;
+}
+
+.project-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: var(--accent-colour);
+  text-transform: uppercase;
+}
+
+.project-video {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Maintain a 16:9 aspect ratio for video placeholders */
+.project-video .video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  background: #000;
+  border-radius: 4px;
+}
+
+.project-video .video-wrapper img,
+.project-video .video-wrapper iframe,
+.project-video .video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Stills grid inside project pages */
+.stills {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stills img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Contact page */
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+.contact-left {
+  flex: 1 1 40%;
+  min-width: 280px;
+}
+
+.contact-right {
+  flex: 1 1 55%;
+  min-width: 320px;
+}
+
+.contact-left h2,
+.contact-right h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--accent-colour);
+}
+
+.contact-left p {
+  margin-bottom: 15px;
+}
+
+.contact-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-right input,
+.contact-right textarea {
+  padding: 12px;
+  border: none;
+  background-color: var(--input-bg);
+  border-radius: 4px;
+  font-size: 1rem;
+  color: var(--text-colour);
+}
+
+.contact-right button {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.contact-right button:hover {
+  opacity: 0.85;
+}
+
+/* Footer */
+footer {
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-colour);
+}
+
+footer a {
+  color: var(--accent-colour);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  nav {
+    gap: 30px;
+    font-size: 1rem;
+  }
+  .works-section {
+    padding: 30px 40px;
+  }
+  .grid-ads,
+  .grid-docs {
+    gap: 20px;
+  }
+  .contact-container {
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-ads,
+  .grid-docs,
+  .stills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  header {
+    padding: 20px 30px;
+  }
+  .logo {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-ads,
+  .grid-docs,
+  .stills {
+    grid-template-columns: 1fr;
+  }
+  nav {
+    gap: 15px;
+    font-size: 0.9rem;
+  }
+  .works-section {
+    padding: 20px;
+  }
+  .contact-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+/* 首页缩略图与叠层（与 ads 页面一致：不缩放、只调亮度、标题永远居中） */
+.grid-item { position: relative; overflow: hidden; border-radius: 6px; background: #111; }
+.grid-item a { display: block; position: relative; }
+
+.grid-item .thumb {
+  display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover;
+  transition: filter .25s ease;
+  backface-visibility: hidden;
+}
+
+.grid-item .overlay {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 92%; text-align: center; color: #fff; font-weight: 700; line-height: 1.2;
+  letter-spacing: .06em; text-transform: uppercase; opacity: 0; transition: opacity .25s ease;
+  pointer-events: none; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+
+.grid-item:hover .thumb   { filter: brightness(.28); }
+.grid-item:hover .overlay { opacity: 1; }
+.project-about .about-wrap { width: min(1200px, 94vw); margin: 32px auto; }
+.project-title { margin: 0 0 8px; }
+.project-meta { list-style: none; padding: 0; margin: 8px 0 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px 16px; }
+.project-desc p { margin: 0 0 10px; line-height: 1.7; }
+.cta-row { margin: 16px 0 8px; }
+.btn { display: inline-block; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+.btn-primary { background: var(--accent-colour, #111); color: #fff; }
+.btn-primary:hover { opacity: .9; }
+.stills { width: min(1200px, 94vw); margin: 24px auto 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.stills img { width: 100%; height: auto; border-radius: 10px; display: block; }
+
+
+
+/* ---------- 基础尺寸与配色（可复用你站点变量） ---------- */
+:root{
+  --maxw: 1200px;
+  --gutter: 24px;
+  --radius: 12px;
+  --text:  #ffffff; /* 你的金色系 */
+  --muted: #ffffff; /* 次要文字 */
+  --border: #e8e8e8; /* 浅灰边框 */
+  --bg-soft: #7d7d7d57; /* 浅灰背景 */
+  --accent: var(--accent-colour, #111);
+}
+
+/* ---------- 版心与标题 ---------- */
+.project-about { background: #0d0d0d; padding: 32px 0 8px; }
+.project-about .about-wrap{
+  width: min(var(--maxw), 94vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+}
+.project-title{ margin:0 0 6px; line-height:1.2; }
+.project-sub{ margin:0 0 12px; color: var(--muted); }
+
+/* 两栏（>= 960px 起用） */
+@media (min-width: 960px){
+  .project-about--twocol .about-wrap{
+    grid-template-columns: minmax(0, 1fr) 320px;
+    align-items: start;
+  }
+}
+
+/* ---------- 主阅读区 ---------- */
+.about-main{
+  display: grid;
+  gap: 18px;
+}
+.project-desc h2{ font-size: 1.05rem; margin: 8px 0 6px; color: var(--text); }
+.project-desc p{ margin: 0 0 10px; line-height: 1.8; color: var(--text); }
+
+/* ---------- 侧栏（粘性） ---------- */
+.about-side{
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-soft);
+}
+.project-meta{
+  list-style:none; padding:0; margin:0; display:grid; gap:10px;
+}
+.project-meta li{
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-size: .95rem; border-bottom: 1px dashed var(--border); padding-bottom: 8px;
+}
+.project-meta li:last-child{ border-bottom: 0; }
+.project-meta span{ color: var(--muted); }
+.project-meta strong{ color: var(--text); font-weight: 600; }
+
+.btn{
+  display:inline-block; padding:10px 14px; border-radius:10px;
+  text-decoration:none; font-weight:600; border:1px solid transparent;
+  text-align:center;
+}
+.btn-primary{ background: var(--accent); color:#fff; }
+.btn-primary:hover{ opacity:.9; }
+.btn-block{ width:100%; }
+
+.keynotes h3{ margin: 0 0 8px; font-size: 1rem; }
+.keynotes ul{ margin:0; padding-left: 18px; color: var(--text); }
+.keynotes li{ margin: 4px 0; }
+
+/* ---------- 剧照网格 ---------- */
+.stills{ width: min(var(--maxw), 94vw); margin: 24px auto 48px; display:grid; gap: 12px; }
+.stills--compact{ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.stills figure{ margin:0; border-radius: var(--radius); overflow:hidden; background: #000; }
+.stills img{ width:100%; height:auto; display:block; transform: scale(1); transition: transform .35s ease, opacity .35s ease; opacity:.96; }
+.stills img:hover{ transform: scale(1.02); opacity:1; }
+
+
+
+
+/* ==== THEME (统一为深色主题，供全站复用) ==== */
+:root{
+  --bg-colour: #0d0d0d;
+  --text-colour: #f5f5f5;         /* 全站基础文字（旧代码仍在用） */
+  --accent-colour: #b69a4c;
+
+  /* 新组件通用变量（别再被覆盖） */
+  --maxw: 1200px;
+  --gutter: 24px;
+  --radius: 12px;
+
+  /* 关键：深色站点下新模块用的颜色 */
+  --text:  #f2f2f2;               /* 替换你后段的 #111，避免黑字压黑底 */
+  --muted: #bdbdbd;
+  --border: #2a2a2a;
+  --bg-soft: rgba(255,255,255,.06);/* 浅亮灰，用作深色卡片底 */
+  --accent: var(--accent-colour);
+}
+
+
+/* ---- Hero Layout ---- */
+.contact-hero{ padding: 36px 0; background: linear-gradient(180deg,#fff, #fafafa); }
+.contact-hero__wrap{
+  width: min(var(--maxw), 94vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 960px){
+  .contact-hero__wrap{ grid-template-columns: 420px minmax(0,1fr); align-items: start; }
+}
+
+/* 左侧名片 */
+.contact-card{
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--pad);
+  display: grid;
+  gap: 14px;
+  position: sticky;
+  top: 24px;
+}
+.contact-card__photo{
+  aspect-ratio: 4/5;
+  border-radius: 14px;
+  overflow: hidden;
+  background:#000;
+}
+.contact-card__photo img{
+  width:100%; height:100%; object-fit: cover; display:block;
+  transform: scale(1.02); transition: transform .4s ease, opacity .4s ease; opacity:.98;
+}
+.contact-card__photo img:hover{ transform: scale(1.05); opacity:1; }
+.contact-card__name{ margin: 2px 0 4px; font-size: 1.4rem; }
+.contact-card__role{ margin:0 0 8px; color: var(--muted); }
+.contact-card__links{ list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+.contact-card__links a{ color: var(--text); text-decoration:none; border-bottom:1px solid transparent; }
+.contact-card__links a:hover{ border-color: var(--text); }
+
+/* 右侧内容 */
+.contact-intro{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding: calc(var(--pad) * 1.25);
+  display:grid; gap: 16px;
+}
+.contact-intro__title{ margin:0; font-size:1.6rem; line-height:1.25; }
+.contact-intro__lead{ margin:0; color: var(--text); line-height:1.8; }
+.btn{ display:inline-block; padding:10px 16px; border-radius: 12px; font-weight:600; text-decoration:none; border:1px solid transparent; }
+.btn-primary{ background: var(--accent); color: #fff; }
+.btn-primary:hover{ opacity:.9; }
+
+/* Tabs */
+.lang-tabs{ display:flex; gap:8px; margin-top: 4px; }
+.lang-tab{
+  appearance:none; border:1px solid var(--border); background:#fff; color:var(--text);
+  padding:8px 12px; border-radius: 999px; cursor:pointer; font-weight:600;
+}
+.lang-tab.is-active{ background: var(--text); color:#fff; border-color: var(--text); }
+.lang-panels{ border-top:1px dashed var(--border); padding-top: 12px; }
+.lang-panel{ display:none; }
+.lang-panel.is-active{ display:block; }
+.lang-panel p{ margin: 0 0 10px; line-height:1.8; }
+
+/* 表单 */
+.contact-form-section{ padding: 8px 0 48px; background: #fff; }
+.contact-form__wrap{
+  width: min(var(--maxw), 94vw);
+  margin: 0 auto;
+  background:#fff; border:1px solid var(--border); border-radius: var(--radius);
+  padding: calc(var(--pad) * 1.25);
+}
+.contact-form__title{ margin:0 0 14px; }
+.contact-form{ display:grid; gap: 12px; }
+.form-row{ display:grid; gap:6px; }
+input, textarea{
+  width:100%; border:1px solid var(--border); border-radius:12px; padding:12px 14px;
+  font:inherit; color:var(--text); background:#fff;
+}
+input:focus, textarea:focus{ outline:none; border-color:#cfcfcf; box-shadow: 0 0 0 3px rgba(0,0,0,.04); }
+
+
+
+
+/* ========== Contact (scoped, minimalist L/R layout) ========== */
+.page-contact .contact-container{
+  width: min(1200px, 94vw);
+  margin: 28px auto 48px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 960px){
+  .page-contact .contact-container{
+    grid-template-columns: 360px minmax(0, 1fr); /* 左侧窄栏 / 右侧主阅读 */
+    align-items: start;
+    column-gap: 32px;
+  }
+}
+
+/* 左侧：图 + 信息（无阴影，纯留白） */
+.page-contact .contact-left{ display: grid; gap: 16px; }
+.page-contact .contact-photo{
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  line-height: 0;
+}
+.page-contact .contact-photo img{
+  width: 100%; height: auto; display: block; object-fit: cover;
+}
+.page-contact .contact-name{
+  margin: 4px 0 2px;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+.page-contact .contact-role{
+  margin: 0 0 6px;
+  color: var(--muted, #888);
+}
+.page-contact .contact-links{
+  list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px;
+}
+.page-contact .contact-links a{
+  color: var(--text-colour, #111);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.page-contact .contact-links a:hover{
+  border-color: currentColor;
+}
+
+/* 右侧：文案与表单（统一间距、细分隔线） */
+.page-contact .contact-right{
+  display: grid;
+  gap: 18px;
+}
+.page-contact .copy h2{
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+}
+.page-contact .copy p{
+  margin: 0 0 10px;
+  line-height: 1.8;
+}
+.page-contact .copy + .copy{
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,.08);
+}
+/* 深色站点兼容：若主站为深色，正文跟随变量；无变量则回退黑字 */
+.page-contact .copy h2,
+.page-contact .copy p{
+  color: var(--text-colour, #111);
+}
+
+/* 表单（整洁、对齐） */
+.page-contact .form-title{ margin: 8px 0 6px; }
+.page-contact .contact-form{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.page-contact .contact-form .full{ grid-column: 1 / -1; }
+.page-contact .contact-form label{ display: grid; gap: 6px; }
+.page-contact .contact-form label span{
+  font-size: .92rem;
+  color: var(--muted, #777);
+}
+.page-contact .contact-form input,
+.page-contact .contact-form textarea{
+  width: 100%;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+  color: #111;
+  background: #fff;
+}
+.page-contact .contact-form input:focus,
+.page-contact .contact-form textarea:focus{
+  outline: none;
+  border-color: #cfcfcf;
+  box-shadow: 0 0 0 3px rgba(0,0,0,.04);
+}
+.page-contact .contact-form .btn-primary{
+  grid-column: 1 / -1;
+  justify-self: start;
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--accent-colour, #111);
+  color: #fff;
+}
+.page-contact .contact-form .btn-primary:hover{ opacity: .9; }
+
+/* 窄屏自适应：表单单列 */
+@media (max-width: 599px){
+  .page-contact .contact-form{ grid-template-columns: 1fr; }
+}
+
+/* Time widget — 极简横排，随你主题色适配 */
+#tz-widget{
+  display:flex; gap:16px; align-items:center; 
+  font-size: .95rem; letter-spacing:.02em; color: var(--text-colour, #eaeaea);
+}
+#tz-widget .tz-item{
+  display:flex; gap:8px; align-items:baseline; white-space:nowrap;
+  padding:6px 10px; border:1px solid rgba(255,255,255,.12); border-radius:999px;
+  background: rgba(255,255,255,.04);
+}
+#tz-widget .tz-item .tz-label{ opacity:.85; font-weight:600; }
+#tz-widget .tz-item .tz-time{ font-variant-numeric: tabular-nums; font-weight:700; }
+#tz-widget .tz-item .tz-date{ opacity:.7; margin-left:4px; font-size:.9em; }
+
+/* 小屏自动缩到单行短样式 */
+@media (max-width:560px){
+  #tz-widget{ gap:10px; font-size:.88rem; }
+  #tz-widget .tz-item{ padding:4px 8px; }
+  #tz-widget .tz-item .tz-date{ display:none; } /* 手机上只显示时间 */
+}
+
+

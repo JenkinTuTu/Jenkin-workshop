@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOC 5 – Jenkin</title>
+  <meta name="description" content="DOC 5 の作品ページ。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="index.html" aria-label="Go to home">JENKIN Workshop</a>
+
+    <nav>
+      <a href="index.html" class="active">work</a>
+      <a href="contact.html">contact</a>
+      <a href="ads.html">ads</a>
+      <span id="tz-right" style="display:inline-block; margin-left:12px;"></span>
+    </nav>
+  </header>
+  <main>
+    <div class="project-header">
+      <h1>DOC 5</h1>
+    </div>
+        <section class="project-video">
+      <div class="video-wrapper">
+         <iframe
+          src="https://www.dailymotion.com/embed/video/k2x4QOAS1ru2XxE0dFA?autoplay=1&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          title="DOC 2"
+          loading="eager">
+        </iframe>
+      </div>
+    </section>
+    <section class="stills">
+        <img src="assets/doc5-still-1.png" alt="DOC 5 still 1">
+        <img src="assets/doc5-still-2.png" alt="DOC 5 still 2">
+        <img src="assets/doc5-still-3.png" alt="DOC 5 still 3">
+        <img src="assets/doc5-still-4.png" alt="DOC 5 still 4">
+        <img src="assets/doc5-still-5.png" alt="DOC 5 still 5">
+        <img src="assets/doc5-still-6.png" alt="DOC 5 still 6">
+        <img src="assets/doc5-still-7.png" alt="DOC 5 still 7">
+        <img src="assets/doc5-still-8.png" alt="DOC 5 still 8">
+        <img src="assets/doc5-still-9.png" alt="DOC 5 still 9">
+        <img src="assets/doc5-still-10.png" alt="DOC 5 still 10">
+        <img src="assets/doc5-still-11.png" alt="DOC 5 still 11">
+        <img src="assets/doc5-still-12.png" alt="DOC 5 still 12">
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 Jenkin. Based in Tokyo, Japan.</p>
+    <p>Get in touch:
+      <a href="https://www.instagram.com/jenkin_ctutu/" target="_blank" rel="noopener noreferrer">Instagram</a> |
+      <a href="https://www.xinpianchang.com/u10175898?channel=copyLink&amp;from=webShare" target="_blank" rel="noopener noreferrer">新片場</a>
+    </p>
+  </footer>
+  <script>
+(() => {
+  const mount = document.getElementById('tz-right');
+  if (!mount) return; // 没有占位则不执行
+
+  // Shadow DOM 隔离样式，不影响你现有CSS
+  const host = document.createElement('span');
+  mount.appendChild(host);
+  const root = host.attachShadow({mode:'open'});
+
+  root.innerHTML = `
+    <style>
+      .wrap{ display:inline-flex; gap:10px; align-items:center; }
+      .chip{
+        display:inline-flex; gap:6px; align-items:baseline;
+        padding:4px 8px; border-radius:999px;
+        background: rgba(22,22,26,.75);
+        color:#fff;
+        border:1px solid rgba(255,255,255,.12);
+        line-height:1;
+      }
+      .label{ opacity:.85; font-weight:600; font-size:12px; }
+      .time{ font-variant-numeric: tabular-nums; font-weight:700; font-size:13px; }
+      /* 手机端尺寸微调 */
+      @media (max-width:560px){ .chip{ padding:4px 8px; } }
+    </style>
+    <div class="wrap" role="group" aria-label="Timezones">
+      <div class="chip" data-zone="Asia/Shanghai">
+        <span class="label">Shanghai</span>
+        <span class="time">--:--:--</span>
+      </div>
+      <div class="chip" data-zone="Asia/Tokyo">
+        <span class="label">Tokyo</span>
+        <span class="time">--:--:--</span>
+      </div>
+    </div>
+  `;
+
+  // 24小时制英文环境；只渲染时间，不渲染日期
+  const fmtTime = (d,tz) =>
+    new Intl.DateTimeFormat('en-GB', { timeZone: tz, hour12: false, hour:'2-digit', minute:'2-digit', second:'2-digit' }).format(d);
+
+  const chips = root.querySelectorAll('.chip');
+  const tick = () => {
+    const now = new Date();
+    chips.forEach(c => {
+      const tz = c.dataset.zone;
+      c.querySelector('.time').textContent = fmtTime(now, tz);
+    });
+  };
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>

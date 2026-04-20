@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <!-- build: 2026-02-28 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Primary Meta Tags -->
+  <title>JENKIN Workshop | 映像作品集 - 広告・ドキュメンタリー</title>
+  <meta name="title" content="JENKIN Workshop | 映像作品集 - 広告・ドキュメンタリー">
+  <meta name="description" content="Jenkin の映像作品集。広告作品とドキュメンタリー作品を掲載。Tokyo based Film Editor - Commercials, Documentaries, Brand Films.">
+  <meta name="keywords" content="映像編集, Film Editor, 広告, Documentary, Brand Film, ポートフォリオ, Video Production, CM映像">
+  <meta name="author" content="Jenkin">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jenkin-workshop.vercel.app/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jenkin-workshop.vercel.app/">
+  <meta property="og:title" content="JENKIN Workshop | 映像作品集">
+  <meta property="og:description" content="Jenkin の映像作品集。広告作品とドキュメンタリー作品を掲載。">
+  <meta property="og:image" content="https://jenkin-workshop.vercel.app/assets/og-image.jpg">
+  <meta property="og:site_name" content="JENKIN Workshop">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://jenkin-workshop.vercel.app/">
+  <meta name="twitter:title" content="JENKIN Workshop | 映像作品集">
+  <meta name="twitter:description" content="Jenkin の映像作品集。広告作品とドキュメンタリー作品を掲載。">
+  <meta name="twitter:image" content="https://jenkin-workshop.vercel.app/assets/og-image.jpg">
+  <meta name="theme-color" content="#0d0d0d">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+
+  <!-- Preload Critical Assets -->
+  <link rel="preconnect" href="https://i.ytimg.com">
+  <link rel="preconnect" href="https://www.dailymotion.com">
+  <link rel="preconnect" href="https://vimeo.com">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jenkin",
+    "jobTitle": "Film Editor",
+    "url": "https://jenkin-workshop.vercel.app/",
+    "sameAs": [
+      "https://www.instagram.com/jenkin_ctutu/",
+      "https://www.xinpianchang.com/u10175898"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "JENKIN Workshop"
+    }
+  }
+  </script>
+</head>
+
+<body class="page-home">
+
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="JENKIN Workshop ホームに戻る" data-i18n-aria-label="logoAriaLabel">
+      <span class="logo__text">JENKIN</span>
+      <span class="logo__sub">Workshop</span>
+    </a>
+
+    <nav class="site-nav" aria-label="メインナビゲーション" data-i18n-aria-label="navAriaLabel">
+      <a href="index.html" class="site-nav__link site-nav__link--active" aria-current="page" data-i18n="navWork">work</a>
+      <a href="contact.html" class="site-nav__link" data-i18n="navContact">contact</a>
+      <a href="ads.html" class="site-nav__link" data-i18n="navAds">ads</a>
+      <div class="lang-switcher" role="group" aria-label="Language Switcher" data-i18n-aria-label="langSwitcherAria">
+        <button class="lang-switcher__btn" type="button" data-lang="zh">中</button>
+        <button class="lang-switcher__btn" type="button" data-lang="ja">日</button>
+        <button class="lang-switcher__btn" type="button" data-lang="en">EN</button>
+      </div>
+      <span id="tz-right" class="timezone-widget" aria-hidden="true"></span>
+    </nav>
+
+  </header>
+  <main class="site-main">
+
+    <section class="works-section" aria-labelledby="works-heading">
+      <!-- Category Filters (Home) -->
+      <nav id="home-filters" class="filters" role="tablist" aria-label="作品カテゴリーで絞り込み" data-i18n-aria-label="filtersAriaLabel">
+        <button class="filter-btn filter-btn--active" data-filter="all" role="tab" aria-selected="true" data-i18n="filterAll">All</button>
+        <button class="filter-btn" data-filter="beauty" role="tab" aria-selected="false" data-i18n="filterBeauty">Beauty｜ビューティー</button>
+        <button class="filter-btn" data-filter="auto" role="tab" aria-selected="false" data-i18n="filterAuto">Auto｜自動車</button>
+        <button class="filter-btn" data-filter="fashion" role="tab" aria-selected="false" data-i18n="filterFashion">Fashion｜ファッション</button>
+        <button class="filter-btn" data-filter="brand" role="tab" aria-selected="false" data-i18n="filterBrand">Brand Film｜ブランドフィルム</button>
+        <button class="filter-btn" data-filter="doc" role="tab" aria-selected="false" data-i18n="filterDoc">Documentary｜ドキュメンタリー</button>
+      </nav>
+      <h2 id="works-heading" class="works-section__title" data-i18n="worksHeading">広告作品 Commercials</h2>
+      <div class="grid-ads works-grid" role="list">
+
+        <!-- AD 1 -->
+        <article class="grid-item works-grid__item" data-category="beauty" role="listitem">
+          <a href="ad1.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad1-thumb.png" alt="完美日記×道枝駿佑 CM映像 - Perfect Diary × Michieda Shunsuke TV Commercial" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">完美日記×道枝駿佑 CM映像｜Perfect Diary × Michieda Shunsuke – TV Commercial</span>
+          </a>
+        </article>
+        <!-- AD 2（Vimeo：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="brand" data-type="vimeo" data-id="1124756860" role="listitem">
+          <a href="ad2.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad2-thumb.jpg" alt="日発紡機ブランドイメージ映像 - RIFA Textile Machinery Brand Image Film" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">日発紡機ブランドイメージ映像｜RIFA Textile Machinery – Brand Image Film</span>
+          </a>
+        </article>
+        <!-- AD 3（YouTube：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="fashion" data-type="vimeo" data-id="1124443345" role="listitem">
+          <a href="ad3.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad3-thumb.jpg" alt="レイフ・崑崙コンセプトショートフィルム - LABELHOOD × KUNLUN Concept Short Film" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">レイフ・崑崙コンセプトショートフィルム｜LABELHOOD × KUNLUN – Concept Short Film</span>
+          </a>
+        </article>
+        <!-- AD 4 -->
+        <article class="grid-item works-grid__item" data-category="brand" data-type="dailymotion" data-id="kzof2v8EgFNhUnFzmzI?" role="listitem">
+          <a href="ad4.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad4-thumb.jpg" alt="ASICS 亚瑟士 #我自带感 Brand Advertising" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">ASICS 亚瑟士《#我自带感》｜ASICS "#MyOwnVibe" – Brand Advertising</span>
+          </a>
+        </article>
+        <!-- AD 14（dailymotion：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="fashion" data-type="dailymotion" data-id="k6qN91xnSHsjE3E2BgS?" role="listitem">
+          <a href="ad14.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad14-thumb.jpg" alt="金卡戴珊 × VOGUE ヴォーグ特集 - Kim Kardashian VOGUE Editorial Campaign" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">金卡戴珊 ✖️ VOGUE - ヴォーグ特集｜Kim Kardashian ✖️ VOGUE – Editorial Campaign</span>
+          </a>
+        </article>
+        <!-- AD 5（YouTube：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="auto" data-type="dailymotion" data-url="k5D5724FrXquFjDZvbQ?" role="listitem">
+          <a href="ad5.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad5-thumb.jpg" alt="BMW i7 How to_DC ブランド映像 - BMW i7 Concept Film" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">BMW i7《How to_DC》- ブランド映像｜BMW i7 "How to_DC" – Concept Film</span>
+          </a>
+        </article>
+        <!-- AD 11（dailymotion：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="brand" data-type="dailymotion" data-id="k6iTLedFjUHYdUDZPeE?" role="listitem">
+          <a href="ad11.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad11-thumb.jpg" alt="0デシベルの叫び × Tmall Olympic Campaign" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">0デシベルの叫び ✖️ Tmall 全民追オリンピック｜"0dB Shout" ✖️ Tmall Olympic Campaign</span>
+          </a>
+        </article>
+        <!-- AD 6（YouTube：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="fashion" data-type="dailymotion" data-id="k4UWXtdSub7HpYDZv3K?" role="listitem">
+          <a href="ad6.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad6-thumb.jpg" alt="LESS 24SS 迅の異象旅行 - LESS 24SS Journey of Vision" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">LESS 24SS 迅の異象旅行｜"LESS 24SS: Journey of Vision – Shun's Odyssey"</span>
+          </a>
+        </article>
+        <!-- AD 9（dailymotion：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="fashion" data-type="dailymotion" data-id="k4afDjwwQPCNzuDZxsq?" role="listitem">
+          <a href="ad9.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad9-thumb.jpg" alt="報喜鳥 24SS スポーツスーツシリーズ 脳内 Theatre of Mind" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">報喜鳥 24SS スポーツ Suitesシリーズ – 脳内シアター｜SNOWLOTUS 24SS Sports Suit Collection – "Theatre of Mind"</span>
+          </a>
+        </article>
+        <!-- AD 15（dailymotion：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="auto" data-type="dailymotion" data-id="k8QqtcrY2lL1KzE2BfI?" role="listitem">
+          <a href="ad15.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad15-thumb.jpg" alt="キャデラック 新 XT6 - Cadillac New XT6" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">キャデラック 新 XT6｜Cadillac New XT6</span>
+          </a>
+        </article>
+        <!-- AD 10（dailymotion：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="brand" data-type="dailymotion" data-id="k3B0MY3ktXpW2aDZy3q?" role="listitem">
+          <a href="ad10.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad10-thumb.jpg" alt="トーフル TVC 2024 - TOEFL TVC 2024 Brand Campaign" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">トーフル TVC 2024｜TOEFL TVC 2024 – Brand Campaign</span>
+          </a>
+        </article>
+        <!-- AD 8（dailymotion：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="beauty" data-type="dailymotion" data-id="k4rXUtAILq4MVXDZxlI?" role="listitem">
+          <a href="ad8.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad8-thumb.jpg" alt="チャー リン CHÁ LING CM映像 - TV Commercial" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">チャー リン（CHÁ LING） CM映像｜CHÁ LING – TV Commercial</span>
+          </a>
+        </article>
+        <!-- AD 12（dailymotion：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="beauty" data-type="dailymotion" data-id="k66pWYAosC3ebRDZPDI?" role="listitem">
+          <a href="ad12.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad12-thumb.jpg" alt="逐本 × チェン・ドゥーリン Brave & Gentle TV Commercial" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">「勇敢で優しい」逐本 × チェン・ドゥーリン CM映像｜Zhuben × Chen Duling — "Brave & Gentle" TV Commercial</span>
+          </a>
+        </article>
+        <!-- AD 13（dailymotion：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="fashion" data-type="dailymotion" data-id="k4rwM6phrB4nSGE2BiE?" role="listitem">
+          <a href="ad13.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad13-thumb.jpg" alt="ZARA AO YES 蛇年限定コレクション - Year of the Snake Limited Collection" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">ZARA｜AO YES 蛇年限定コレクション｜ZARA | AO YES — Year of the Snake Limited Collection (Yi Si)</span>
+          </a>
+        </article>
+        <!-- AD 16（dailymotion：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="fashion" data-type="dailymotion" data-id="k4sJNAte5D21OcE2Bf8?" role="listitem">
+          <a href="ad16.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad16-thumb.png" alt="ZARA 2015 キャンペーン メイキング映像 - Campaign BTS" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">ZARA 2015 キャンペーン メイキング映像｜ZARA — 2015 Campaign BTS</span>
+          </a>
+        </article>
+        <!-- AD 17（dailymotion：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="brand" data-type="dailymotion" data-id="k38xoe2DJmOMfoE2SaA?" role="listitem">
+          <a href="ad17.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad17-thumb.jpg" alt="美団鮮花3.8 国際女性デー CM映像 - International Women's Day TV Commercial" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">美団鮮花3.8 国際女性デー CM映像｜Meituan Flowers — International Women's Day TV Commercial</span>
+          </a>
+        </article>
+        <!-- AD 18（dailymotion：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="brand" data-type="dailymotion" data-id="kLio2PfRvAzNO9E2Scu?" role="listitem">
+          <a href="ad18.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad18-thumb.jpg" alt="夜タオバオ 不误正夜 CM映像 - Night Taobao Make the Night Count" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">夜タオバオ「不误正夜」CM映像｜Night Taobao — "Make the Night Count" TV Commercial</span>
+          </a>
+        </article>
+        <!-- AD 19（dailymotion：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="fashion" data-type="dailymotion" data-id="k57oypHy2ciSl7E2Se6?" role="listitem">
+          <a href="ad19.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad19-thumb.png" alt="Armani Beauty パワー ファブリック コンパクト × チャン・シャオフェイ CM映像" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">Armani Beauty パワー ファブリック コンパクト × チャン・シャオフェイ CM映像｜Armani Beauty — Power Fabric Compact TV Commercial</span>
+          </a>
+        </article>
+        <!-- AD 20（dailymotion：用视频 ID） -->
+        <article class="grid-item works-grid__item" data-category="fashion" data-type="dailymotion" data-id="kjDq1AjgJ4mmz9E2SeG?" role="listitem">
+          <a href="ad20.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad20-thumb.png" alt="Armani Beauty パワー ファブリック コンパクト × ウェン・チー CM映像" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">Armani Beauty パワー ファブリック コンパクト × ウェン・チー CM映像｜Armani Beauty — Power Fabric Compact TV Commercial</span>
+          </a>
+        </article>
+        <!-- Documentary 1 -->
+        <article class="grid-item works-grid__item" data-category="doc" data-type="dailymotion" data-id="k10zR8W2w9121oDZxOQ?" role="listitem">
+          <a href="doc1.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/doc1-thumb.jpg" alt="ロエベ 2023 早春 純色天成 ブランドフィルム - LOEWE Brand Film" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">ロエベ 2023 早春「純色天成」ブランドフィルム｜LOEWE — 2023 Early Spring "Pure Color, Naturally Formed" Brand Film</span>
+          </a>
+        </article>
+        <!-- Documentary 2 -->
+        <article class="grid-item works-grid__item" data-category="doc" data-type="dailymotion" data-id="k1KTRLXBqoZFK9DZxOa?" role="listitem">
+          <a href="doc2.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/doc2-thumb.jpg" alt="Fabrique 彼女の完全なワードローブ 公式発表テーマ映像 - Her Complete Wardrobe" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">Fabrique「彼女の完全なワードローブ」公式発表テーマ映像 feat. ヤン・ズーシャン｜Fabrique — "Her Complete Wardrobe" Official Theme Film feat. Yang Zishan</span>
+          </a>
+        </article>
+        <!-- Documentary 3 -->
+        <article class="grid-item works-grid__item" data-category="doc" data-type="iqiyi" data-id="itfm26oh48?" role="listitem">
+          <a href="doc3.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/doc3-thumb.png" alt="六个团子 動物ドキュメンタリー - Six Dumplings Animal Documentary" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">六个团子｜動物ドキュメンタリー｜Six Dumplings — Animal Documentary</span>
+          </a>
+        </article>
+        <!-- AD 22 -->
+        <article class="grid-item works-grid__item" data-category="auto" data-type="dailymotion" data-id="kq21GZvfUvTpCNDZPzG?" role="listitem">
+          <a href="ad22.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad22-thumb.jpg" alt="アヴィタ012 × 李娜 AVITA 012 × Li Na" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">アヴィタ012 × 李娜（リー・ナ） CM映像｜AVITA 012 × Li Na</span>
+          </a>
+        </article>
+        <!-- AD 21 -->
+        <article class="grid-item works-grid__item" data-category="beauty" data-type="dailymotion" data-id="k6wl7DhqR13VvXE4Tpi?" role="listitem">
+          <a href="ad21.html" class="works-grid__link">
+            <img class="thumb works-grid__thumb" src="assets/ad21-thumb.jpg" alt="逐本 Zhuben × ホウ・ミンハオ Brand Film" loading="lazy" decoding="async" width="640" height="360">
+            <span class="overlay works-grid__overlay">逐本（Zhuben） × ホウ・ミンハオ ブランドフィルム｜Zhuben × Hou Minghao — Brand Film</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <p data-i18n="footerBase">&copy; 2025 Jenkin. Based in Tokyo, Japan.</p>
+    <p><span data-i18n="footerContact">Get in touch:</span>
+      <a href="https://www.instagram.com/jenkin_ctutu/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <span class="footer__separator" aria-hidden="true">|</span>
+      <a href="https://www.xinpianchang.com/u10175898?channel=copyLink&amp;from=webShare" target="_blank"
+        rel="noopener noreferrer">新片場</a>
+    </p>
+  </footer>
+  <script>
+    window.pageI18nConfig = {
+      defaultLang: 'ja',
+      translations: {
+        zh: {
+          lang: 'zh-CN',
+          themeColor: '#0d0d0d',
+          title: 'JENKIN Workshop | 影像作品集 - 广告与纪录片',
+          metaTitle: 'JENKIN Workshop | 影像作品集 - 广告与纪录片',
+          metaDescription: 'Jenkin 的影像作品集，展示广告、纪录片与品牌影片作品。Tokyo based Film Editor - Commercials, Documentaries, Brand Films.',
+          ogTitle: 'JENKIN Workshop | 影像作品集',
+          ogDescription: 'Jenkin 的影像作品集，展示广告、纪录片与品牌影片作品。',
+          ogLocale: 'zh_CN',
+          twitterTitle: 'JENKIN Workshop | 影像作品集',
+          twitterDescription: 'Jenkin 的影像作品集，展示广告、纪录片与品牌影片作品。',
+          logoAriaLabel: '返回 JENKIN Workshop 首页',
+          navAriaLabel: '主导航',
+          langSwitcherAria: '语言切换',
+          navWork: '作品',
+          navContact: '联系',
+          navAds: '灵感收集',
+          filtersAriaLabel: '按作品类别筛选',
+          filterAll: '全部',
+          filterBeauty: '美妆',
+          filterAuto: '汽车',
+          filterFashion: '时尚',
+          filterBrand: '品牌影片',
+          filterDoc: '纪录片',
+          worksHeading: '广告作品',
+          footerBase: '&copy; 2025 Jenkin. 常驻东京，日本。',
+          footerContact: '联系我：',
+          badge_beauty: '美妆',
+          badge_auto: '汽车',
+          badge_fashion: '时尚',
+          badge_brand: '品牌影片',
+          badge_doc: '纪录片',
+          work_ad1: '完美日记 × 道枝骏佑 CM影片',
+          work_ad2: '日发纺机 品牌形象片',
+          work_ad3: 'LABELHOOD × 昆仑 概念短片',
+          work_ad4: 'ASICS《#我自带感》品牌广告',
+          work_ad14: '金·卡戴珊 × VOGUE 编辑企划',
+          work_ad5: 'BMW i7《How to_DC》概念影片',
+          work_ad11: '《0分贝的呼喊》× Tmall 奥运企划',
+          work_ad6: 'LESS 24SS《迅的异象旅行》',
+          work_ad9: '报喜鸟 24SS 运动西装系列《脑内剧场》',
+          work_ad15: '凯迪拉克 全新 XT6',
+          work_ad10: 'TOEFL TVC 2024 品牌企划',
+          work_ad8: 'CHÁ LING 广告影片',
+          work_ad12: '逐本 × 陈都灵《勇敢且温柔》广告片',
+          work_ad13: 'ZARA × AO YES 蛇年限定系列',
+          work_ad16: 'ZARA 2015 广告幕后花絮',
+          work_ad17: '美团鲜花 3.8 国际妇女节广告片',
+          work_ad18: '夜淘宝《不误正夜》广告片',
+          work_ad19: 'Armani Beauty 粉气垫 × 张小斐 广告片',
+          work_ad20: 'Armani Beauty 粉气垫 × 文淇 广告片',
+          work_doc1: 'LOEWE 2023 早春《纯色天成》品牌影片',
+          work_doc2: 'Fabrique《她的完整衣橱》官方主题片',
+          work_doc3: '六个团子 动物纪录片',
+          work_ad22: 'AVITA 012 × 李娜 广告片',
+          work_ad21: '逐本 × 侯明昊 品牌影片'
+        },
+        ja: {
+          lang: 'ja',
+          themeColor: '#0d0d0d',
+          title: 'JENKIN Workshop | 映像作品集 - 広告・ドキュメンタリー',
+          metaTitle: 'JENKIN Workshop | 映像作品集 - 広告・ドキュメンタリー',
+          metaDescription: 'Jenkin の映像作品集。広告作品とドキュメンタリー作品を掲載。Tokyo based Film Editor - Commercials, Documentaries, Brand Films.',
+          ogTitle: 'JENKIN Workshop | 映像作品集',
+          ogDescription: 'Jenkin の映像作品集。広告作品とドキュメンタリー作品を掲載。',
+          ogLocale: 'ja_JP',
+          twitterTitle: 'JENKIN Workshop | 映像作品集',
+          twitterDescription: 'Jenkin の映像作品集。広告作品とドキュメンタリー作品を掲載。',
+          logoAriaLabel: 'JENKIN Workshop のホームへ戻る',
+          navAriaLabel: 'メインナビゲーション',
+          langSwitcherAria: '言語切り替え',
+          navWork: '作品',
+          navContact: 'お問い合わせ',
+          navAds: 'インスピレーション',
+          filtersAriaLabel: '作品カテゴリーで絞り込み',
+          filterAll: 'すべて',
+          filterBeauty: 'ビューティー',
+          filterAuto: '自動車',
+          filterFashion: 'ファッション',
+          filterBrand: 'ブランドフィルム',
+          filterDoc: 'ドキュメンタリー',
+          worksHeading: '広告作品',
+          footerBase: '&copy; 2025 Jenkin. 東京を拠点に活動しています。',
+          footerContact: 'お問い合わせ：',
+          badge_beauty: 'ビューティー',
+          badge_auto: '自動車',
+          badge_fashion: 'ファッション',
+          badge_brand: 'ブランドフィルム',
+          badge_doc: 'ドキュメンタリー',
+          work_ad1: '完美日記 × 道枝駿佑 CM映像',
+          work_ad2: '日発紡機 ブランドイメージ映像',
+          work_ad3: 'LABELHOOD × 崑崙 コンセプトショートフィルム',
+          work_ad4: 'ASICS「#我自带感」ブランド広告',
+          work_ad14: 'キム・カーダシアン × VOGUE エディトリアルキャンペーン',
+          work_ad5: 'BMW i7「How to_DC」コンセプトフィルム',
+          work_ad11: '「0デシベルの叫び」× Tmall オリンピックキャンペーン',
+          work_ad6: 'LESS 24SS「迅の異象旅行」',
+          work_ad9: '報喜鳥 24SS スポーツスーツコレクション「脳内シアター」',
+          work_ad15: 'キャデラック 新 XT6',
+          work_ad10: 'TOEFL TVC 2024 ブランドキャンペーン',
+          work_ad8: 'CHÁ LING CM映像',
+          work_ad12: '逐本 × 陳都霊「勇敢で優しい」CM映像',
+          work_ad13: 'ZARA × AO YES 蛇年限定コレクション',
+          work_ad16: 'ZARA 2015 キャンペーン メイキング',
+          work_ad17: '美団鮮花 3.8 国際女性デー CM映像',
+          work_ad18: '夜タオバオ「不误正夜」CM映像',
+          work_ad19: 'Armani Beauty パワー ファブリック コンパクト × 張小斐 CM映像',
+          work_ad20: 'Armani Beauty パワー ファブリック コンパクト × 文淇 CM映像',
+          work_doc1: 'LOEWE 2023 早春「純色天成」ブランドフィルム',
+          work_doc2: 'Fabrique「彼女の完全なワードローブ」公式テーマ映像',
+          work_doc3: '六个团子 動物ドキュメンタリー',
+          work_ad22: 'AVITA 012 × 李娜 CM映像',
+          work_ad21: '逐本 × 侯明昊 ブランドフィルム'
+        },
+        en: {
+          lang: 'en',
+          themeColor: '#0d0d0d',
+          title: 'JENKIN Workshop | Film Portfolio - Commercials & Documentaries',
+          metaTitle: 'JENKIN Workshop | Film Portfolio - Commercials & Documentaries',
+          metaDescription: 'Jenkin film editor portfolio featuring commercials, documentaries, and brand films. Based in Tokyo, working across Asia.',
+          ogTitle: 'JENKIN Workshop | Film Portfolio',
+          ogDescription: 'Jenkin film editor portfolio featuring commercials, documentaries, and brand films.',
+          ogLocale: 'en_US',
+          twitterTitle: 'JENKIN Workshop | Film Portfolio',
+          twitterDescription: 'Jenkin film editor portfolio featuring commercials, documentaries, and brand films.',
+          logoAriaLabel: 'Return to the JENKIN Workshop home page',
+          navAriaLabel: 'Main navigation',
+          langSwitcherAria: 'Language switcher',
+          navWork: 'Work',
+          navContact: 'Contact',
+          navAds: 'Inspiration',
+          filtersAriaLabel: 'Filter work by category',
+          filterAll: 'All',
+          filterBeauty: 'Beauty',
+          filterAuto: 'Auto',
+          filterFashion: 'Fashion',
+          filterBrand: 'Brand Film',
+          filterDoc: 'Documentary',
+          worksHeading: 'Commercial Work',
+          footerBase: '&copy; 2025 Jenkin. Based in Tokyo, Japan.',
+          footerContact: 'Get in touch:',
+          badge_beauty: 'Beauty',
+          badge_auto: 'Auto',
+          badge_fashion: 'Fashion',
+          badge_brand: 'Brand Film',
+          badge_doc: 'Documentary',
+          work_ad1: 'Perfect Diary × Michieda Shunsuke TV Commercial',
+          work_ad2: 'RIFA Textile Machinery Brand Image Film',
+          work_ad3: 'LABELHOOD × KUNLUN Concept Short Film',
+          work_ad4: 'ASICS "#MyOwnVibe" Brand Advertising',
+          work_ad14: 'Kim Kardashian × VOGUE Editorial Campaign',
+          work_ad5: 'BMW i7 "How to_DC" Concept Film',
+          work_ad11: '"0dB Shout" × Tmall Olympic Campaign',
+          work_ad6: 'LESS 24SS: Journey of Vision',
+          work_ad9: 'SNOWLOTUS 24SS Sports Suit Collection: Theatre of Mind',
+          work_ad15: 'Cadillac New XT6',
+          work_ad10: 'TOEFL TVC 2024 Brand Campaign',
+          work_ad8: 'CHÁ LING TV Commercial',
+          work_ad12: 'Zhuben × Chen Duling: "Brave & Gentle" TV Commercial',
+          work_ad13: 'ZARA × AO YES Year of the Snake Limited Collection',
+          work_ad16: 'ZARA 2015 Campaign BTS',
+          work_ad17: 'Meituan Flowers International Women\'s Day TV Commercial',
+          work_ad18: 'Night Taobao: "Make the Night Count" TV Commercial',
+          work_ad19: 'Armani Beauty Power Fabric Compact × Zhang Xiaofei TV Commercial',
+          work_ad20: 'Armani Beauty Power Fabric Compact × Wen Qi TV Commercial',
+          work_doc1: 'LOEWE 2023 Early Spring Brand Film',
+          work_doc2: 'Fabrique: Her Complete Wardrobe Official Theme Film',
+          work_doc3: 'Six Dumplings Animal Documentary',
+          work_ad22: 'AVITA 012 × Li Na TV Commercial',
+          work_ad21: 'Zhuben × Hou Minghao Brand Film'
+        }
+      }
+    };
+  </script>
+  <script defer src="i18n.js"></script>
+  <script defer src="site.js"></script>
+  <script defer>
+    (() => {
+      function renderWorkTitles() {
+        document.querySelectorAll('.works-grid__link').forEach((link) => {
+          const overlay = link.querySelector('.works-grid__overlay');
+          if (!overlay) return;
+          const key = (link.getAttribute('href') || '').replace('.html', '');
+          const title = window.SiteI18n?.t(`work_${key}`);
+          if (title) overlay.textContent = title;
+        });
+      }
+
+      renderWorkTitles();
+      document.addEventListener('site-languagechange', renderWorkTitles);
+    })();
+  </script>
+  <script defer>
+    // —— 解析 YouTube 各种链接为 ID（如你用 data-url 时会用到） —— //
+    function parseYouTubeId(url) {
+      try {
+        const u = new URL(url);
+        if (u.hostname.includes('youtu.be')) return u.pathname.slice(1);
+        if (u.hostname.includes('youtube.com')) {
+          const v = u.searchParams.get('v');
+          if (v) return v;
+          const parts = u.pathname.split('/');
+          const idx = parts.indexOf('embed');
+          if (idx !== -1 && parts[idx + 1]) return parts[idx + 1];
+        }
+      } catch (e) {}
+      return null;
+    }
+
+    // —— YouTube 缩略图地址 —— //
+    function ytThumb(id) {
+      return {
+        max: `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,
+        hq: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`
+      };
+    }
+
+    function testImage(url) {
+      return new Promise(r => {
+        const i = new Image();
+        i.onload = () => r(true);
+        i.onerror = () => r(false);
+        i.src = url;
+      });
+    }
+
+    function sanitizeVideoToken(value) {
+      return String(value || '').trim().replace(/[?#].*$/, '');
+    }
+
+    function extractVimeoId(value) {
+      const cleaned = sanitizeVideoToken(value);
+      if (/^\d+$/.test(cleaned)) return cleaned;
+      const match = cleaned.match(/vimeo\.com\/(?:video\/)?(\d+)/i);
+      return match ? match[1] : null;
+    }
+
+    function fetchVimeoThumb(vimeoUrlOrId) {
+      const vimeoId = extractVimeoId(vimeoUrlOrId);
+      if (!vimeoId) throw new Error('Vimeo id missing');
+      return `https://vumbnail.com/${vimeoId}.jpg`;
+    }
+
+    async function hydrateCard(card) {
+      const img = card.querySelector('.thumb');
+      if (!img || img.dataset.hydrated === '1') return;
+      const currentSrc = img.getAttribute('src') || '';
+      const usesPlaceholder = /(^|\/)placeholder\.png$/i.test(currentSrc);
+      if (currentSrc && !usesPlaceholder && await testImage(currentSrc)) {
+        img.dataset.hydrated = '1';
+        return;
+      }
+      const type = card.dataset.type;
+      const id = card.dataset.id;
+      const url = card.dataset.url;
+      const fallback = 'assets/placeholder.png';
+
+      try {
+        if (type === 'youtube') {
+          let ytId = id || (url ? parseYouTubeId(url) : null);
+          if (!ytId) throw 'no id';
+          const set = ytThumb(ytId);
+          img.src = (await testImage(set.max)) ? set.max : set.hq;
+        } else if (type === 'vimeo') {
+          const v = id || url;
+          if (!v) throw 'no id';
+          img.src = await fetchVimeoThumb(v) || fallback;
+        } else if (type === 'dailymotion') {
+          const dmId = sanitizeVideoToken(id || url);
+          if (!dmId) throw 'no id';
+          // 官方缩略图直链
+          img.src = `https://www.dailymotion.com/thumbnail/video/${dmId}`;
+        } else {
+          // 本地 MP4：保持占位或你已有的 thumb
+        }
+      } catch (e) {
+        img.src = fallback;
+      } finally {
+        img.dataset.hydrated = '1';
+      }
+    }
+
+    // —— 懒加载：进入视口再拉取封面 —— //
+    (function () {
+      const cards = document.querySelectorAll('.grid-item[data-type]');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(en => {
+          if (en.isIntersecting) {
+            hydrateCard(en.target);
+            io.unobserve(en.target);
+          }
+        });
+      }, {
+        rootMargin: '200px 0px'
+      });
+      cards.forEach(c => io.observe(c));
+    })();
+  </script>
+
+<script defer>
+(() => {
+  function renderBadges() {
+    document.querySelectorAll('.grid-item').forEach(card => {
+      const key = (card.dataset.category || '').toLowerCase().trim();
+      const label = window.SiteI18n?.t(`badge_${key}`);
+      if (!label) return;
+
+      let badge = card.querySelector('.badge');
+      if (!badge) {
+        badge = document.createElement('span');
+        badge.className = 'badge';
+        card.prepend(badge);
+      }
+      badge.textContent = label;
+    });
+  }
+
+  renderBadges();
+  document.addEventListener('site-languagechange', renderBadges);
+})();
+</script>
+<script defer>
+/* Home filters: 按分类隐藏/显示 .grid-item（无侵入、可并存现有逻辑） */
+(function () {
+  const bar = document.getElementById('home-filters');
+  if (!bar) return;
+
+  const btns  = Array.from(bar.querySelectorAll('button[data-filter]'));
+  const items = Array.from(document.querySelectorAll('.grid-item'));
+
+  function apply(category) {
+    const cat = String(category || 'all').toLowerCase();
+    items.forEach(el => {
+      const cur = (el.dataset.category || '').toLowerCase();
+      const show = (cat === 'all') || (cur === cat);
+      el.toggleAttribute('hidden', !show);
+    });
+  }
+
+  bar.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-filter]');
+    if (!btn) return;
+    btns.forEach(b => {
+      const active = b === btn;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    apply(btn.dataset.filter);
+  });
+
+  // 初始：显示全部
+  apply('all');
+})();
+</script>
+
+</body>
+</html>

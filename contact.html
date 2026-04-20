@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Primary Meta Tags -->
+  <title>Contact – JENKIN Workshop | お問い合わせ</title>
+  <meta name="title" content="Contact – JENKIN Workshop | お問い合わせ">
+  <meta name="description" content="Jenkin へのお問い合わせページ。映像制作やコラボレーションについて老先生各方面的帮助。">
+  <meta name="keywords" content="お問い合わせ, Contact, 映像編集, Film Editor, コラボレーション">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jenkin-workshop.vercel.app/contact.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jenkin-workshop.vercel.app/contact.html">
+  <meta property="og:title" content="Contact – JENKIN Workshop">
+  <meta property="og:description" content="Jenkin へのお問い合わせページ。映像制作やコラボレーションについて老先生各方面的帮助。">
+  <meta property="og:image" content="https://jenkin-workshop.vercel.app/assets/og-image.jpg">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://jenkin-workshop.vercel.app/contact.html">
+  <meta name="twitter:title" content="Contact – JENKIN Workshop">
+  <meta name="twitter:description" content="Jenkin へのお問い合わせページ。">
+  <meta name="twitter:image" content="https://jenkin-workshop.vercel.app/assets/og-image.jpg">
+  <meta name="theme-color" content="#0d0d0d">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+
+  <!-- Preconnect to external resources -->
+  <link rel="preconnect" href="https://i.ytimg.com">
+  <link rel="preconnect" href="https://www.dailymotion.com">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page-local: rounded portrait (scoped to contact page) */
+    .page-contact .contact-photo {
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .page-contact .contact-photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 25px;
+    }
+  </style>
+</head>
+
+<body class="page-contact">
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="JENKIN Workshop ホームに戻る" data-i18n-aria-label="logoAriaLabel">
+      <span class="logo__text">JENKIN</span>
+      <span class="logo__sub">Workshop</span>
+    </a>
+    <nav class="site-nav" aria-label="メインナビゲーション" data-i18n-aria-label="navAriaLabel">
+      <a href="index.html" class="site-nav__link" data-i18n="navWork">work</a>
+      <a href="contact.html" class="site-nav__link site-nav__link--active" aria-current="page" data-i18n="navContact">contact</a>
+      <a href="ads.html" class="site-nav__link" data-i18n="navAds">ads</a>
+      <div class="lang-switcher" role="group" aria-label="Language Switcher" data-i18n-aria-label="langSwitcherAria">
+        <button class="lang-switcher__btn" type="button" data-lang="zh">中</button>
+        <button class="lang-switcher__btn" type="button" data-lang="ja">日</button>
+        <button class="lang-switcher__btn" type="button" data-lang="en">EN</button>
+      </div>
+      <span id="tz-right" class="timezone-widget" aria-hidden="true"></span>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <div class="contact-container">
+      <!-- 左栏：形象与社交 -->
+      <aside class="contact-left">
+        <figure class="contact-photo">
+          <img src="assets/jenkin-portrait.jpg" alt="Jenkin - 映像編集者 ポートレート写真" width="600" height="750" loading="lazy">
+        </figure>
+
+        <div class="contact-meta">
+          <h1 class="contact-name">江山—Jenkin</h1>
+          <p class="contact-role" data-i18n="contactRole">Film Editor / 映像編集者 / 影视剪辑师</p>
+          <ul class="contact-links">
+            <li><a href="https://www.instagram.com/jenkin_ctutu/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.xinpianchang.com/u10175898?channel=copyLink&amp;from=webShare" target="_blank" rel="noopener noreferrer">新片場</a></li>
+            <li><a href="mailto:jenkin0119@gmail.com">jenkin0119@gmail.com</a></li>
+
+            <!-- 微信 -->
+            <li class="wechat-line">
+              <span class="label" data-i18n="wechatLabel">WeChat：</span>
+              <span class="value" title="クリックでコピー" data-i18n-title="wechatCopyTitle" onclick="navigator.clipboard && navigator.clipboard.writeText('Cjshan0119')" role="button" tabindex="0" onkeypress="if(event.key==='Enter')this.click()">Cjshan0119</span>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- 右栏：三语文案 + 表单 -->
+      <section class="contact-right">
+        <!-- 日文 -->
+        <section class="copy" data-lang-panel="ja">
+          <h2>お問い合わせ</h2>
+          <p>Jenkin（ソウコウザン）は東京を拠点に活動する映像編集者です。広告、ドキュメンタリー，短編など、企画から仕上げまで横断し，最短動線で仕上げます。新規案件・コラボのご相談をお待ちしています。</p>
+        </section>
+
+        <!-- 中文 -->
+        <section class="copy" data-lang-panel="zh" hidden>
+          <h2>联系方式</h2>
+          <p>常驻上海与东京的影视剪辑师，覆盖广告、纪录片与短片。擅长节奏与情绪线构建，保证叙事效率与品牌表达。欢迎就新项目或合作沟通。</p>
+        </section>
+
+        <!-- English -->
+        <section class="copy" data-lang-panel="en" hidden>
+          <h2>Contact</h2>
+          <p>Tokyo-based film editor across commercials, documentaries, and short-form. I shape pace and emotional arcs with clarity. Open to new projects and collaborations.</p>
+        </section>
+
+        <!-- 表单 -->
+        <h3 class="form-title" data-i18n="formTitle">コンタクトフォーム / Contact Form / 联系表单</h3>
+        <form id="contact-form" class="contact-form" aria-label="お問い合わせフォーム" data-i18n-aria-label="contactFormAria">
+          <label>
+            <span data-i18n="fieldName">Name / お名前 / 姓名</span>
+            <input type="text" name="name" required aria-required="true">
+          </label>
+          <label>
+            <span data-i18n="fieldEmail">Email / メールアドレス / 邮箱</span>
+            <input type="email" name="email" required aria-required="true">
+          </label>
+          <label class="full">
+            <span data-i18n="fieldMessage">Message / メッセージ / 留言</span>
+            <textarea name="message" rows="6" placeholder="项目类型 / 时长 / 素材量 / 交付节点" data-i18n-placeholder="fieldMessagePlaceholder" required aria-required="true"></textarea>
+          </label>
+          <button type="submit" class="btn-primary" data-i18n="sendButton">Send / 送信 / 发送</button>
+          <p id="contact-status" class="contact-form__status" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p data-i18n="footerBase">&copy; 2025 Jenkin. Based in Tokyo, Japan.</p>
+    <p><span data-i18n="footerContact">Get in touch:</span>
+      <a href="https://www.instagram.com/jenkin_ctutu/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <span class="footer__separator" aria-hidden="true">|</span>
+      <a href="https://www.xinpianchang.com/u10175898?channel=copyLink&amp;from=webShare" target="_blank" rel="noopener noreferrer">新片場</a>
+    </p>
+  </footer>
+  <script>
+    window.pageI18nConfig = {
+      defaultLang: 'ja',
+      translations: {
+        zh: {
+          lang: 'zh-CN',
+          themeColor: '#0d0d0d',
+          title: 'Contact | JENKIN Workshop - 联系方式',
+          metaTitle: 'Contact | JENKIN Workshop - 联系方式',
+          metaDescription: 'Jenkin 联系页面。欢迎就广告、纪录片、品牌影片与合作项目取得联系。',
+          ogTitle: 'Contact | JENKIN Workshop',
+          ogDescription: 'Jenkin 联系页面。欢迎就广告、纪录片、品牌影片与合作项目取得联系。',
+          ogLocale: 'zh_CN',
+          twitterTitle: 'Contact | JENKIN Workshop',
+          twitterDescription: 'Jenkin 联系页面。欢迎就广告、纪录片、品牌影片与合作项目取得联系。',
+          logoAriaLabel: '返回 JENKIN Workshop 首页',
+          navAriaLabel: '主导航',
+          langSwitcherAria: '语言切换',
+          navWork: '作品',
+          navContact: '联系',
+          navAds: '灵感收集',
+          contactRole: '影视剪辑师 / 映像編集者 / Film Editor',
+          wechatLabel: '微信：',
+          wechatCopyTitle: '点击复制',
+          formTitle: '联系表单',
+          contactFormAria: '联系表单',
+          fieldName: '姓名',
+          fieldEmail: '邮箱',
+          fieldMessage: '留言',
+          fieldMessagePlaceholder: '项目类型 / 时长 / 素材量 / 交付节点',
+          sendButton: '发送',
+          footerBase: '&copy; 2025 Jenkin. 常驻东京，日本。',
+          footerContact: '联系我：',
+          mailSubjectPrefix: '来自作品集网站的咨询',
+          mailSubjectFallback: '网站访客',
+          mailBodyName: '姓名',
+          mailBodyEmail: '邮箱',
+          mailBodyMessage: '留言',
+          mailOpenedStatus: '已尝试打开邮件客户端。如果没有自动打开，请直接发送邮件到上方邮箱地址。'
+        },
+        ja: {
+          lang: 'ja',
+          themeColor: '#0d0d0d',
+          title: 'Contact | JENKIN Workshop - お問い合わせ',
+          metaTitle: 'Contact | JENKIN Workshop - お問い合わせ',
+          metaDescription: 'Jenkin へのお問い合わせページ。広告、ドキュメンタリー、ブランドフィルムのご相談をお待ちしています。',
+          ogTitle: 'Contact | JENKIN Workshop',
+          ogDescription: 'Jenkin へのお問い合わせページ。広告、ドキュメンタリー、ブランドフィルムのご相談をお待ちしています。',
+          ogLocale: 'ja_JP',
+          twitterTitle: 'Contact | JENKIN Workshop',
+          twitterDescription: 'Jenkin へのお問い合わせページ。広告、ドキュメンタリー、ブランドフィルムのご相談をお待ちしています。',
+          logoAriaLabel: 'JENKIN Workshop のホームへ戻る',
+          navAriaLabel: 'メインナビゲーション',
+          langSwitcherAria: '言語切り替え',
+          navWork: '作品',
+          navContact: 'お問い合わせ',
+          navAds: 'インスピレーション',
+          contactRole: '映像編集者 / 影视剪辑师 / Film Editor',
+          wechatLabel: 'WeChat：',
+          wechatCopyTitle: 'クリックでコピー',
+          formTitle: 'コンタクトフォーム',
+          contactFormAria: 'お問い合わせフォーム',
+          fieldName: 'お名前',
+          fieldEmail: 'メールアドレス',
+          fieldMessage: 'メッセージ',
+          fieldMessagePlaceholder: '案件の種類 / 尺 / 素材量 / 納期',
+          sendButton: '送信',
+          footerBase: '&copy; 2025 Jenkin. 東京を拠点に活動しています。',
+          footerContact: 'お問い合わせ：',
+          mailSubjectPrefix: 'ポートフォリオサイトからのお問い合わせ',
+          mailSubjectFallback: 'サイト訪問者',
+          mailBodyName: 'お名前',
+          mailBodyEmail: 'メールアドレス',
+          mailBodyMessage: 'メッセージ',
+          mailOpenedStatus: 'メールアプリを開きました。自動で開かない場合は上記のメールアドレスへ直接ご連絡ください。'
+        },
+        en: {
+          lang: 'en',
+          themeColor: '#0d0d0d',
+          title: 'Contact | JENKIN Workshop',
+          metaTitle: 'Contact | JENKIN Workshop',
+          metaDescription: 'Get in touch with Jenkin about commercials, documentaries, brand films, and editorial collaborations.',
+          ogTitle: 'Contact | JENKIN Workshop',
+          ogDescription: 'Get in touch with Jenkin about commercials, documentaries, brand films, and editorial collaborations.',
+          ogLocale: 'en_US',
+          twitterTitle: 'Contact | JENKIN Workshop',
+          twitterDescription: 'Get in touch with Jenkin about commercials, documentaries, brand films, and editorial collaborations.',
+          logoAriaLabel: 'Return to the JENKIN Workshop home page',
+          navAriaLabel: 'Main navigation',
+          langSwitcherAria: 'Language switcher',
+          navWork: 'Work',
+          navContact: 'Contact',
+          navAds: 'Inspiration',
+          contactRole: 'Film Editor / 映像編集者 / 影视剪辑师',
+          wechatLabel: 'WeChat:',
+          wechatCopyTitle: 'Click to copy',
+          formTitle: 'Contact Form',
+          contactFormAria: 'Contact form',
+          fieldName: 'Name',
+          fieldEmail: 'Email',
+          fieldMessage: 'Message',
+          fieldMessagePlaceholder: 'Project type / runtime / footage volume / delivery timeline',
+          sendButton: 'Send',
+          footerBase: '&copy; 2025 Jenkin. Based in Tokyo, Japan.',
+          footerContact: 'Get in touch:',
+          mailSubjectPrefix: 'Portfolio inquiry from',
+          mailSubjectFallback: 'Website visitor',
+          mailBodyName: 'Name',
+          mailBodyEmail: 'Email',
+          mailBodyMessage: 'Message',
+          mailOpenedStatus: 'Your mail app has been opened. If nothing happened, please email the address above directly.'
+        }
+      }
+    };
+  </script>
+  <script defer src="i18n.js"></script>
+  <script defer src="site.js"></script>
+  <script defer>
+(() => {
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('contact-status');
+  if (!form || !status) return;
+
+  const recipient = 'jenkin0119@gmail.com';
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const data = new FormData(form);
+    const name = String(data.get('name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const message = String(data.get('message') || '').trim();
+
+    const subjectPrefix = window.SiteI18n?.t('mailSubjectPrefix') || 'Portfolio inquiry from';
+    const subjectFallback = window.SiteI18n?.t('mailSubjectFallback') || 'Website visitor';
+    const bodyName = window.SiteI18n?.t('mailBodyName') || 'Name';
+    const bodyEmail = window.SiteI18n?.t('mailBodyEmail') || 'Email';
+    const bodyMessage = window.SiteI18n?.t('mailBodyMessage') || 'Message';
+    const openedStatus = window.SiteI18n?.t('mailOpenedStatus') || 'Your mail app has been opened. If nothing happened, please email the address above directly.';
+
+    const subject = `${subjectPrefix} ${name || subjectFallback}`;
+    const body = [
+      `${bodyName}: ${name}`,
+      `${bodyEmail}: ${email}`,
+      '',
+      `${bodyMessage}:`,
+      message
+    ].join('\n');
+
+    window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    status.textContent = openedStatus;
+  });
+})();
+</script>
+</body>
+</html>

@@ -99,6 +99,7 @@
         <button class="filter-btn" data-filter="doc" role="tab" aria-selected="false" data-i18n="filterDoc">Documentary｜ドキュメンタリー</button>
       </nav>
       <h2 id="works-heading" class="works-section__title" data-i18n="worksHeading">広告作品 Commercials</h2>
+      <p class="access-note">CN note: Some overseas video platforms may be unavailable in mainland China. Local cover images are prioritized for better loading stability.</p>
       <div class="grid-ads works-grid" role="list">
 
         <!-- AD 1 -->
@@ -529,9 +530,26 @@
       return `https://vumbnail.com/${vimeoId}.jpg`;
     }
 
+    function pickLocalThumb(card) {
+      const link = card.querySelector('a[href]');
+      if (!link) return null;
+      const href = (link.getAttribute('href') || '').trim();
+      const slug = href.replace('.html', '');
+      if (/^(ad\d+|doc\d+)$/i.test(slug)) {
+        return `assets/${slug.toLowerCase()}-thumb.jpg`;
+      }
+      return null;
+    }
+
     async function hydrateCard(card) {
       const img = card.querySelector('.thumb');
       if (!img || img.dataset.hydrated === '1') return;
+      const localThumb = pickLocalThumb(card);
+      if (localThumb) {
+        img.src = localThumb;
+        img.dataset.hydrated = '1';
+        return;
+      }
       const currentSrc = img.getAttribute('src') || '';
       const usesPlaceholder = /(^|\/)placeholder\.png$/i.test(currentSrc);
       if (currentSrc && !usesPlaceholder && await testImage(currentSrc)) {

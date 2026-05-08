@@ -214,6 +214,7 @@
   <main class="page-wrap">
     <h1 class="section-title" data-i18n="adsHeading">インスピレーションコレクション（カテゴリで絞り込み / サムネイルをクリックして拡大再生）</h1>
     <p class="section-note" data-i18n="adsNote">以下は Vimeo Staff Picks、Best Of、受賞作からキュレーションした外部リファレンス作品です。サイト上のオリジナル実績ではありません。</p>
+    <p class="access-note">CN note: Overseas platforms may be partially unavailable in mainland China. This page keeps local thumbnails and provides best-effort playback.</p>
 
     <!-- 筛选按钮：data-filter 与卡片的 data-category 对应 -->
   <div class="filters" role="tablist" aria-label="Category Filters" data-i18n-aria-label="filtersAriaLabel">
@@ -617,57 +618,12 @@
       }
     });
 
-    /* —— 自动为 Vimeo / YouTube 卡片填充封面图（懒加载） —— */
+    /* Mainland-friendly mode: keep existing local thumbnails and avoid external cover fetches. */
     (function () {
-      const cards = document.querySelectorAll('.grid-item');
-      const fallbackThumb = 'assets/placeholder.png';
-
-      function ytThumb(id){ return { max:`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`, hq:`https://i.ytimg.com/vi/${id}/hqdefault.jpg` }; }
-      function testImage(url){
-        return new Promise(r => { const i = new Image(); i.onload=()=>r(true); i.onerror=()=>r(false); i.src=url; });
-      }
-      function sanitizeVideoToken(value){
-        return String(value || '').trim().replace(/[?#].*$/, '');
-      }
-      function extractVimeoId(value){
-        const cleaned = sanitizeVideoToken(value);
-        if (/^\d+$/.test(cleaned)) return cleaned;
-        const match = cleaned.match(/vimeo\.com\/(?:video\/)?(\d+)/i);
-        return match ? match[1] : null;
-      }
-      function fetchVimeoThumb(vimeoUrlOrId){
-        const vimeoId = extractVimeoId(vimeoUrlOrId);
-        if (!vimeoId) throw new Error('Vimeo id missing');
-        return `https://vumbnail.com/${vimeoId}.jpg`;
-      }
-      async function hydrate(card){
-        const img = card.querySelector('.thumb'); if(!img || img.dataset.hydrated==='1') return;
-        const currentSrc = img.getAttribute('src') || '';
-        const usesPlaceholder = /(^|\/)placeholder\.png$/i.test(currentSrc);
-        if (currentSrc && !usesPlaceholder && await testImage(currentSrc)) {
-          img.dataset.hydrated = '1';
-          return;
-        }
-        const t = card.dataset.type, url = card.dataset.url, id = card.dataset.id;
-        try {
-          if (t === 'youtube') {
-            let ytId = id || (url ? parseYouTubeId(url) : null); if (!ytId) throw 'no id';
-            const set = ytThumb(ytId);
-            img.src = (await testImage(set.max)) ? set.max : set.hq;
-          } else if (t === 'vimeo') {
-            const v = url || id; if (!v) throw 'no id';
-            img.src = await fetchVimeoThumb(v) || fallbackThumb;
-          }
-        } catch(e) {
-          img.src = fallbackThumb;
-        } finally {
-          img.dataset.hydrated = '1';
-        }
-      }
-      const io = new IntersectionObserver(es => es.forEach(en => {
-        if (en.isIntersecting){ hydrate(en.target); io.unobserve(en.target); }
-      }), { rootMargin:'200px 0px' });
-      cards.forEach(c => io.observe(c));
+      document.querySelectorAll('.grid-item .thumb').forEach((img) => {
+        if (!img.getAttribute('src')) img.setAttribute('src', 'assets/placeholder.png');
+        img.dataset.hydrated = '1';
+      });
     })();
 
   </script>

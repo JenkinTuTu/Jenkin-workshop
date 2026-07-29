@@ -5,6 +5,7 @@
   <!-- build: 2026-02-28 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- Primary Meta Tags -->
@@ -549,14 +550,15 @@
         const frame = document.createElement('iframe');
         const url = new URL(source);
         url.searchParams.set('autoplay', '1');
-        frame.src = url.href;
         frame.title = modalTitle.textContent;
         frame.loading = 'eager';
         frame.allow = 'autoplay; fullscreen; picture-in-picture; web-share';
         frame.allowFullscreen = true;
         if (url.hostname.includes('dailymotion.com')) {
           frame.referrerPolicy = 'strict-origin-when-cross-origin';
+          frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
         }
+        frame.src = url.href;
         wrapper.append(frame);
         section.append(wrapper);
         return section;

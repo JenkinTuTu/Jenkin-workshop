@@ -20,17 +20,19 @@
           navContact: '联系',
           navAds: '灵感收集',
           adsHeading: '灵感收集（按类型筛选 / 点击封面放大播放）',
-          adsNote: '以下为从 Vimeo Staff Picks、Best Of 与获奖作品中挑选的外部灵感样本，用来呈现我偏好的影像气质，不代表本站原创项目。',
+          adsNote: '以下为从 Vimeo Staff Picks、Runway AI Film Festival 与获奖作品中挑选的外部灵感样本，用来呈现我偏好的影像气质，不代表本站原创项目。',
           filtersAriaLabel: '广告分类筛选',
           filterAll: '全部',
           filterSport: '运动',
           filterAuto: '汽车',
           filterFashion: '时尚',
           filterDoc: '品牌影片',
+          filterAI: 'AI 视频',
           badge_sport: '运动',
           badge_auto: '汽车',
           badge_fashion: '时尚',
           badge_doc: '品牌影片',
+          badge_ai: 'AI 视频',
           lightboxAria: '视频播放器',
           closePlayer: '关闭播放器',
           footerBase: '© 2025 Jenkin. 常驻东京，日本。',
@@ -46,17 +48,19 @@
           navContact: 'お問い合わせ',
           navAds: 'インスピレーション',
           adsHeading: 'インスピレーションコレクション（カテゴリで絞り込み / サムネイルをクリックして拡大再生）',
-          adsNote: '以下は Vimeo Staff Picks、Best Of、受賞作からキュレーションした外部リファレンス作品です。サイト上のオリジナル実績ではありません。',
+          adsNote: '以下は Vimeo Staff Picks、Runway AI Film Festival、受賞作からキュレーションした外部リファレンス作品です。サイト上のオリジナル実績ではありません。',
           filtersAriaLabel: '広告カテゴリで絞り込み',
           filterAll: 'すべて',
           filterSport: 'スポーツ',
           filterAuto: '自動車',
           filterFashion: 'ファッション',
           filterDoc: 'ブランド・ドキュメンタリー',
+          filterAI: 'AI 映像',
           badge_sport: 'スポーツ',
           badge_auto: '自動車',
           badge_fashion: 'ファッション',
           badge_doc: 'ブランド・ドキュメンタリー',
+          badge_ai: 'AI 映像',
           lightboxAria: '動画プレーヤー',
           closePlayer: 'プレーヤーを閉じる',
           footerBase: '© 2025 Jenkin. Based in Tokyo, Japan.',
@@ -72,17 +76,19 @@
           navContact: 'contact',
           navAds: 'Inspiration',
           adsHeading: 'Inspiration Collection (filter by category / click a cover to open the player)',
-          adsNote: 'Curated from Vimeo Staff Picks, Best Of selections, and award-winning films to match the tone of this portfolio. They are not original projects on this site.',
+          adsNote: 'Curated from Vimeo Staff Picks, Runway AI Film Festival, and award-winning films to match the tone of this portfolio. They are not original projects on this site.',
           filtersAriaLabel: 'Ad category filters',
           filterAll: 'All',
           filterSport: 'Sport',
           filterAuto: 'Auto',
           filterFashion: 'Fashion',
           filterDoc: 'Branded Doc',
+          filterAI: 'AI Film',
           badge_sport: 'Sport',
           badge_auto: 'Auto',
           badge_fashion: 'Fashion',
           badge_doc: 'Branded Doc',
+          badge_ai: 'AI Film',
           lightboxAria: 'Video player',
           closePlayer: 'Close player',
           footerBase: '© 2025 Jenkin. Based in Tokyo, Japan.',
@@ -168,6 +174,13 @@
     .player-frame iframe, .player-frame video{
       position:absolute; inset:0; width:100%; height:100%; border:0; background:#000;
     }
+    .player-frame__external {
+      position:absolute; left:50%; bottom:16px; transform:translateX(-50%); z-index:1;
+      padding:8px 12px; border-radius:999px; background:rgba(0,0,0,.72);
+      border:1px solid rgba(255,255,255,.35); color:#fff; font-size:.85rem;
+      text-decoration:none; white-space:nowrap;
+    }
+    .player-frame__external:hover, .player-frame__external:focus-visible { background:rgba(0,0,0,.92); color:#fff; }
     .lb-close{
       position:absolute; top:22px; right:22px; background:rgba(0,0,0,.6);
       color:#fff; border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:8px 12px; cursor:pointer;
@@ -222,6 +235,7 @@
   <button class="filter-btn" data-filter="auto"    role="tab" aria-selected="false" data-i18n="filterAuto">自動車</button>
   <button class="filter-btn" data-filter="fashion" role="tab" aria-selected="false" data-i18n="filterFashion">ファッション</button>
   <button class="filter-btn" data-filter="doc"     role="tab" aria-selected="false" data-i18n="filterDoc">ブランド・ドキュメンタリー</button>
+  <button class="filter-btn" data-filter="ai"      role="tab" aria-selected="false" data-i18n="filterAI">AI 映像</button>
 </div>
 
 
@@ -514,6 +528,36 @@
     </span>
     <span class="badge">ファッション</span>
   </article>
+
+  <article class="grid-item" data-category="ai" data-type="youtube" data-id="ZkEi1KU6DtQ">
+    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/a-face-only-a-mother-could-love_web-v2.webp" alt="A Face Only A Mother Could Love — Runway AI Film Festival Grand Prix" loading="lazy" referrerpolicy="no-referrer">
+    <span class="overlay"><span class="en">A Face Only A Mother Could Love</span><span class="ja">Runway AIF Grand Prix</span></span>
+    <span class="badge">AI 映像</span>
+  </article>
+
+  <article class="grid-item" data-category="ai" data-type="youtube" data-id="yBs_pMUDrrk">
+    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/the-well_web-v2.webp" alt="THE WELL — Runway AI Film Festival Gold" loading="lazy" referrerpolicy="no-referrer">
+    <span class="overlay"><span class="en">THE WELL</span><span class="ja">Runway AIF Gold</span></span>
+    <span class="badge">AI 映像</span>
+  </article>
+
+  <article class="grid-item" data-category="ai" data-type="youtube" data-id="dcXw2VyYEPU">
+    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/where-knights-fall.webp" alt="Where Knights Fall — Runway AI Film Festival Silver" loading="lazy" referrerpolicy="no-referrer">
+    <span class="overlay"><span class="en">Where Knights Fall</span><span class="ja">Runway AIF Silver</span></span>
+    <span class="badge">AI 映像</span>
+  </article>
+
+  <article class="grid-item" data-category="ai" data-type="youtube" data-id="CGwVeRd9Uuc">
+    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/costa-verde.webp" alt="Costa Verde — Runway AI Film Festival Honoree" loading="lazy" referrerpolicy="no-referrer">
+    <span class="overlay"><span class="en">Costa Verde</span><span class="ja">Runway AIF Honoree</span></span>
+    <span class="badge">AI 映像</span>
+  </article>
+
+  <article class="grid-item" data-category="ai" data-type="youtube" data-id="-hcn82vwCr8">
+    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/tairell-isnt-real_web-v2.webp" alt="TAIRELL ISN'T REAL — Runway AI Film Festival Honoree" loading="lazy" referrerpolicy="no-referrer">
+    <span class="overlay"><span class="en">TAIRELL ISN'T REAL</span><span class="ja">Runway AIF Honoree</span></span>
+    <span class="badge">AI 映像</span>
+  </article>
 </section>
   </main>
   <footer class="site-footer">
@@ -606,7 +650,8 @@
         if (!ytId) return;
         openLightbox(
           `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
-                   allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`
+                   allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+           <a class="player-frame__external" href="https://www.youtube.com/watch?v=${ytId}" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>`
         );
       } else if (type === 'mp4' && src) {
         openLightbox(

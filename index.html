@@ -88,18 +88,18 @@
   </header>
   <main class="site-main">
 
-    <section class="works-section" aria-labelledby="works-heading">
+    <section class="works-section" aria-label="作品" data-i18n-aria-label="worksSectionAriaLabel">
       <!-- Category Filters (Home) -->
-      <nav id="home-filters" class="filters" role="tablist" aria-label="作品カテゴリーで絞り込み" data-i18n-aria-label="filtersAriaLabel">
-        <button class="filter-btn filter-btn--active" data-filter="all" role="tab" aria-selected="true" data-i18n="filterAll">All</button>
-        <button class="filter-btn" data-filter="beauty" role="tab" aria-selected="false" data-i18n="filterBeauty">Beauty｜ビューティー</button>
-        <button class="filter-btn" data-filter="auto" role="tab" aria-selected="false" data-i18n="filterAuto">Auto｜自動車</button>
-        <button class="filter-btn" data-filter="fashion" role="tab" aria-selected="false" data-i18n="filterFashion">Fashion｜ファッション</button>
-        <button class="filter-btn" data-filter="brand" role="tab" aria-selected="false" data-i18n="filterBrand">Brand Film｜ブランドフィルム</button>
-        <button class="filter-btn" data-filter="doc" role="tab" aria-selected="false" data-i18n="filterDoc">Documentary｜ドキュメンタリー</button>
+      <nav id="home-filters" class="filters" role="group" aria-label="作品カテゴリーで絞り込み" data-i18n-aria-label="filtersAriaLabel">
+        <button class="filter-btn filter-btn--active" data-filter="all" aria-pressed="true" data-i18n="filterAll">All</button>
+        <button class="filter-btn" data-filter="beauty" aria-pressed="false" data-i18n="filterBeauty">Beauty｜ビューティー</button>
+        <button class="filter-btn" data-filter="auto" aria-pressed="false" data-i18n="filterAuto">Auto｜自動車</button>
+        <button class="filter-btn" data-filter="fashion" aria-pressed="false" data-i18n="filterFashion">Fashion｜ファッション</button>
+        <button class="filter-btn" data-filter="brand" aria-pressed="false" data-i18n="filterBrand">Brand Film｜ブランドフィルム</button>
+        <button class="filter-btn" data-filter="doc" aria-pressed="false" data-i18n="filterDoc">Documentary｜ドキュメンタリー</button>
+        <button class="filter-btn" data-filter="ai" aria-pressed="false" data-i18n="filterAI">AI 映像</button>
       </nav>
-      <h2 id="works-heading" class="works-section__title" data-i18n="worksHeading">広告作品 Commercials</h2>
-      <div class="grid-ads works-grid" role="list">
+      <div id="work-grid" class="grid-ads works-grid" role="list">
 
         <!-- AD 1 -->
         <article class="grid-item works-grid__item" data-category="beauty" role="listitem">
@@ -270,6 +270,7 @@
           </a>
         </article>
       </div>
+      <p id="filter-empty" class="filter-empty" role="status" hidden data-i18n="filterEmpty">新しい作品を準備中です。</p>
     </section>
 
   </main>
@@ -304,13 +305,15 @@
           navContact: '联系',
           navAds: '灵感收集',
           filtersAriaLabel: '按作品类别筛选',
+          worksSectionAriaLabel: '作品',
           filterAll: '全部',
           filterBeauty: '美妆',
           filterAuto: '汽车',
           filterFashion: '时尚',
           filterBrand: '品牌影片',
           filterDoc: '纪录片',
-          worksHeading: '广告作品',
+          filterAI: 'AI 视频',
+          filterEmpty: 'AI 视频作品正在准备中。',
           footerBase: '&copy; 2025 Jenkin. 常驻东京，日本。',
           footerContact: '联系我：',
           badge_beauty: '美妆',
@@ -361,13 +364,15 @@
           navContact: 'お問い合わせ',
           navAds: 'インスピレーション',
           filtersAriaLabel: '作品カテゴリーで絞り込み',
+          worksSectionAriaLabel: '作品',
           filterAll: 'すべて',
           filterBeauty: 'ビューティー',
           filterAuto: '自動車',
           filterFashion: 'ファッション',
           filterBrand: 'ブランドフィルム',
           filterDoc: 'ドキュメンタリー',
-          worksHeading: '広告作品',
+          filterAI: 'AI 映像',
+          filterEmpty: 'AI 映像作品を準備中です。',
           footerBase: '&copy; 2025 Jenkin. 東京を拠点に活動しています。',
           footerContact: 'お問い合わせ：',
           badge_beauty: 'ビューティー',
@@ -418,13 +423,15 @@
           navContact: 'Contact',
           navAds: 'Inspiration',
           filtersAriaLabel: 'Filter work by category',
+          worksSectionAriaLabel: 'Work',
           filterAll: 'All',
           filterBeauty: 'Beauty',
           filterAuto: 'Auto',
           filterFashion: 'Fashion',
           filterBrand: 'Brand Film',
           filterDoc: 'Documentary',
-          worksHeading: 'Commercial Work',
+          filterAI: 'AI Film',
+          filterEmpty: 'AI films are coming soon.',
           footerBase: '&copy; 2025 Jenkin. Based in Tokyo, Japan.',
           footerContact: 'Get in touch:',
           badge_beauty: 'Beauty',
@@ -615,29 +622,41 @@
 
   const btns  = Array.from(bar.querySelectorAll('button[data-filter]'));
   const items = Array.from(document.querySelectorAll('.grid-item'));
+  const empty = document.getElementById('filter-empty');
 
   function apply(category) {
     const cat = String(category || 'all').toLowerCase();
+    let visibleCount = 0;
     items.forEach(el => {
       const cur = (el.dataset.category || '').toLowerCase();
       const show = (cat === 'all') || (cur === cat);
       el.toggleAttribute('hidden', !show);
+      if (show) visibleCount += 1;
     });
+    empty.hidden = visibleCount !== 0;
+
+    btns.forEach((button) => {
+      const active = button.dataset.filter === cat;
+      button.classList.toggle('filter-btn--active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+
+    if (window.history && window.history.replaceState) {
+      const url = new URL(window.location.href);
+      if (cat === 'all') url.hash = '';
+      else url.hash = cat;
+      window.history.replaceState(null, '', url);
+    }
   }
 
   bar.addEventListener('click', (e) => {
     const btn = e.target.closest('button[data-filter]');
     if (!btn) return;
-    btns.forEach(b => {
-      const active = b === btn;
-      b.classList.toggle('active', active);
-      b.setAttribute('aria-selected', active ? 'true' : 'false');
-    });
     apply(btn.dataset.filter);
   });
 
-  // 初始：显示全部
-  apply('all');
+  const initialCategory = window.location.hash.slice(1).toLowerCase();
+  apply(btns.some((button) => button.dataset.filter === initialCategory) ? initialCategory : 'all');
 })();
 </script>
 

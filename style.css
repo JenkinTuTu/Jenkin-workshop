@@ -1113,6 +1113,99 @@ input:focus, textarea:focus{ outline:none; border-color:#cfcfcf; box-shadow: 0 0
 /* 筛选时用 [hidden] 隐藏非当前分类的卡片 */
 .grid-item[hidden] { display: none !important; }  
 
+/* Home filters: compact category navigation and a clear empty state. */
+#home-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#home-filters button.filter-btn--active {
+  background: var(--accent-colour);
+  color: #101010;
+  border-color: transparent;
+  font-weight: 700;
+}
+
+.filter-empty {
+  min-height: 10rem;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  border: 1px dashed rgba(182, 154, 76, 0.34);
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.filter-empty[hidden] {
+  display: none;
+}
+
+/* Project-player fallback controls for platform or region availability issues. */
+.player-controls {
+  width: min(1200px, calc(100% - 40px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: -4px auto 24px;
+  padding: 12px 2px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.player-controls p {
+  margin: 0;
+}
+
+.player-controls__actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+}
+
+.player-controls button,
+.player-controls a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-colour);
+  font-size: inherit;
+  line-height: 1;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.player-controls button:hover,
+.player-controls a:hover {
+  border-color: var(--accent-colour);
+  background: rgba(182, 154, 76, 0.12);
+  color: var(--accent-hover);
+}
+
+@media (max-width: 680px) {
+  .player-controls {
+    align-items: flex-start;
+    flex-direction: column;
+    width: min(100% - 28px, 1200px);
+    margin-bottom: 18px;
+  }
+
+  .player-controls__actions {
+    width: 100%;
+  }
+
+  .player-controls button,
+  .player-controls a {
+    justify-content: center;
+    flex: 1;
+  }
+}
+
 /* ===== 2026-04 Optimization Layer ===== */
 body {
   background:
@@ -1272,8 +1365,9 @@ main,
 
 .project-header h1,
 .project-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.08;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.12;
+  text-wrap: balance;
 }
 
 .project-video .video-wrapper {

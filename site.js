@@ -391,24 +391,41 @@
       </div>
     `;
 
-    const chips = root.querySelectorAll('.chip');
-    const formatter = (date, timezone) => new Intl.DateTimeFormat('en-GB', {
-      timeZone: timezone,
-      hour12: false,
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
-    }).format(date);
+    const chips = Array.from(root.querySelectorAll('.chip')).map((chip) => ({
+      time: chip.querySelector('.time'),
+      formatter: new Intl.DateTimeFormat('en-GB', {
+        timeZone: chip.dataset.zone,
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      })
+    }));
 
     const tick = () => {
       const now = new Date();
-      chips.forEach((chip) => {
-        chip.querySelector('.time').textContent = formatter(now, chip.dataset.zone);
+      chips.forEach(({ time, formatter }) => {
+        time.textContent = formatter.format(now);
       });
     };
 
-    tick();
-    window.setInterval(tick, 1000);
+    let timerId = null;
+    const start = () => {
+      if (timerId || doc.hidden) return;
+      tick();
+      timerId = window.setInterval(tick, 1000);
+    };
+    const stop = () => {
+      if (!timerId) return;
+      window.clearInterval(timerId);
+      timerId = null;
+    };
+
+    doc.addEventListener('visibilitychange', () => {
+      if (doc.hidden) stop();
+      else start();
+    });
+    start();
   }
 
   function initTouchCards() {
@@ -471,6 +488,52 @@
     });
   }
 
+  function initProjectPlayerControls() {
+    const projects = doc.querySelectorAll('.project-video .video-wrapper');
+    if (!projects.length) return;
+
+    const labels = {
+      zh: { retry: '重新加载视频', external: '在原平台打开', hint: '若播放器持续加载，可重试或在原平台打开。' },
+      ja: { retry: '映像を再読み込み', external: '元のプラットフォームで開く', hint: '読み込みが続く場合は、再読み込みまたは元のプラットフォームでお試しください。' },
+      en: { retry: 'Reload video', external: 'Open on original platform', hint: 'If loading continues, reload the player or open the original platform.' }
+    };
+    const lang = getSavedLang();
+    const copy = labels[lang] || labels.ja;
+
+    projects.forEach((wrapper) => {
+      if (wrapper.dataset.playerControlsReady === '1') return;
+      const frame = wrapper.querySelector('iframe');
+      if (!frame?.src) return;
+
+      wrapper.dataset.playerControlsReady = '1';
+      const source = new URL(frame.src);
+      let externalUrl = source.href;
+      const dailyMatch = source.pathname.match(/\/video\/([^/?]+)/);
+      const vimeoMatch = source.pathname.match(/\/video\/(\d+)/);
+      if (source.hostname.includes('dailymotion.com') && dailyMatch) {
+        externalUrl = `https://www.dailymotion.com/video/${dailyMatch[1]}`;
+      } else if (source.hostname.includes('vimeo.com') && vimeoMatch) {
+        externalUrl = `https://vimeo.com/${vimeoMatch[1]}`;
+      }
+
+      const controls = doc.createElement('div');
+      controls.className = 'player-controls';
+      controls.innerHTML = `
+        <p>${copy.hint}</p>
+        <div class="player-controls__actions">
+          <button type="button" class="player-controls__retry">${copy.retry}</button>
+          <a href="${externalUrl}" target="_blank" rel="noopener noreferrer">${copy.external}</a>
+        </div>
+      `;
+      controls.querySelector('.player-controls__retry').addEventListener('click', () => {
+        const url = new URL(frame.src);
+        url.searchParams.set('reload', Date.now().toString());
+        frame.src = url.href;
+      });
+      wrapper.closest('.project-video').insertAdjacentElement('afterend', controls);
+    });
+  }
+
   function initRevealAnimations() {
     const targets = doc.querySelectorAll(
       '.works-section, .section-title, .section-note, .filters, .works-grid__item, .grid-item, .contact-card, .contact-copy, .contact-form-wrap, .project-header, .project-video, .project-about, .stills, .site-footer'
@@ -511,9 +574,18 @@
     const sync = () => {
       header.classList.toggle('site-header--scrolled', window.scrollY > 16);
     };
+    let framePending = false;
+    const scheduleSync = () => {
+      if (framePending) return;
+      framePending = true;
+      window.requestAnimationFrame(() => {
+        sync();
+        framePending = false;
+      });
+    };
 
     sync();
-    window.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('scroll', scheduleSync, { passive: true });
   }
 
   function init() {
@@ -522,6 +594,7 @@
     mountTimezoneWidget();
     initTouchCards();
     enhanceMedia();
+    initProjectPlayerControls();
     initRevealAnimations();
     initHeaderScrollState();
   }

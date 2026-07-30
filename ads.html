@@ -20,7 +20,7 @@
           navContact: '联系',
           navAds: '灵感收集',
           adsHeading: '灵感收集（按类型筛选 / 点击封面放大播放）',
-          adsNote: '以下为从 Vimeo Staff Picks、Runway AI Film Festival 与获奖作品中挑选的外部灵感样本，用来呈现我偏好的影像气质，不代表本站原创项目。',
+          adsNote: '以下为从 Vimeo Staff Picks、Runway AI Film Festival、获奖作品与个人 Instagram 收藏中挑选的外部灵感样本，用来呈现我偏好的影像气质，不代表本站原创项目。',
           filtersAriaLabel: '广告分类筛选',
           filterAll: '全部',
           filterSport: '运动',
@@ -28,11 +28,13 @@
           filterFashion: '时尚',
           filterDoc: '品牌影片',
           filterAI: 'AI 视频',
+          filterInstagram: 'Instagram 收藏',
           badge_sport: '运动',
           badge_auto: '汽车',
           badge_fashion: '时尚',
           badge_doc: '品牌影片',
           badge_ai: 'AI 视频',
+          badge_instagram: 'Instagram 收藏',
           lightboxAria: '视频播放器',
           closePlayer: '关闭播放器',
           footerBase: '© 2025 Jenkin. 常驻东京，日本。',
@@ -48,7 +50,7 @@
           navContact: 'お問い合わせ',
           navAds: 'インスピレーション',
           adsHeading: 'インスピレーションコレクション（カテゴリで絞り込み / サムネイルをクリックして拡大再生）',
-          adsNote: '以下は Vimeo Staff Picks、Runway AI Film Festival、受賞作からキュレーションした外部リファレンス作品です。サイト上のオリジナル実績ではありません。',
+          adsNote: '以下は Vimeo Staff Picks、Runway AI Film Festival、受賞作と個人の Instagram 保存作品からキュレーションした外部リファレンスです。サイト上のオリジナル実績ではありません。',
           filtersAriaLabel: '広告カテゴリで絞り込み',
           filterAll: 'すべて',
           filterSport: 'スポーツ',
@@ -56,11 +58,13 @@
           filterFashion: 'ファッション',
           filterDoc: 'ブランド・ドキュメンタリー',
           filterAI: 'AI 映像',
+          filterInstagram: 'Instagram 保存',
           badge_sport: 'スポーツ',
           badge_auto: '自動車',
           badge_fashion: 'ファッション',
           badge_doc: 'ブランド・ドキュメンタリー',
           badge_ai: 'AI 映像',
+          badge_instagram: 'Instagram 保存',
           lightboxAria: '動画プレーヤー',
           closePlayer: 'プレーヤーを閉じる',
           footerBase: '© 2025 Jenkin. Based in Tokyo, Japan.',
@@ -76,7 +80,7 @@
           navContact: 'contact',
           navAds: 'Inspiration',
           adsHeading: 'Inspiration Collection (filter by category / click a cover to open the player)',
-          adsNote: 'Curated from Vimeo Staff Picks, Runway AI Film Festival, and award-winning films to match the tone of this portfolio. They are not original projects on this site.',
+          adsNote: 'Curated from Vimeo Staff Picks, Runway AI Film Festival, award-winning films, and personal Instagram saves to match the tone of this portfolio. They are not original projects on this site.',
           filtersAriaLabel: 'Ad category filters',
           filterAll: 'All',
           filterSport: 'Sport',
@@ -84,11 +88,13 @@
           filterFashion: 'Fashion',
           filterDoc: 'Branded Doc',
           filterAI: 'AI Film',
+          filterInstagram: 'Instagram Saves',
           badge_sport: 'Sport',
           badge_auto: 'Auto',
           badge_fashion: 'Fashion',
           badge_doc: 'Branded Doc',
           badge_ai: 'AI Film',
+          badge_instagram: 'Instagram Saves',
           lightboxAria: 'Video player',
           closePlayer: 'Close player',
           footerBase: '© 2025 Jenkin. Based in Tokyo, Japan.',
@@ -236,13 +242,14 @@
   <button class="filter-btn" data-filter="fashion" role="tab" aria-selected="false" data-i18n="filterFashion">ファッション</button>
   <button class="filter-btn" data-filter="doc"     role="tab" aria-selected="false" data-i18n="filterDoc">ブランド・ドキュメンタリー</button>
   <button class="filter-btn" data-filter="ai"      role="tab" aria-selected="false" data-i18n="filterAI">AI 映像</button>
+  <button class="filter-btn" data-filter="instagram" role="tab" aria-selected="false" data-i18n="filterInstagram">Instagram 保存</button>
 </div>
 
 
     <!-- 4 列广告网格：data-category 标记类型；data-* 提供播放源 -->
 <section class="ads-grid">
   <article class="grid-item" data-category="sport" data-type="vimeo" data-id="1123469874">
-    <img class="thumb" src="assets/insp-01-puma.jpg" alt="PUMA x Hello Sunrise | Horizon Running Club" loading="lazy">
+    <img class="thumb" src="assets/insp-01-puma.jpg" alt="PUMA x Hello Sunrise | Horizon Running Club" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">PUMA x Hello Sunrise | "Horizon Running Club"</span>
       <span class="ja">PUMA × Hello Sunrise「Horizon Running Club」</span>
@@ -251,7 +258,7 @@
   </article>
 
   <article class="grid-item" data-category="sport" data-type="vimeo" data-id="1079229723">
-    <img class="thumb" src="assets/insp-02-mayhem.jpg" alt="MAYHEM" loading="lazy">
+    <img class="thumb" src="assets/insp-02-mayhem.jpg" alt="MAYHEM" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">MAYHEM</span>
       <span class="ja">MAYHEM</span>
@@ -260,7 +267,7 @@
   </article>
 
   <article class="grid-item" data-category="auto" data-type="vimeo" data-id="504726377">
-    <img class="thumb" src="assets/insp-03-the8.jpg" alt="The8." loading="lazy">
+    <img class="thumb" src="assets/insp-03-the8.jpg" alt="The8." loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">The8.</span>
       <span class="ja">The8.</span>
@@ -269,7 +276,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="694523288">
-    <img class="thumb" src="assets/insp-04-zara-estate.jpg" alt="ZARA | Una Giornata D'Estate" loading="lazy">
+    <img class="thumb" src="assets/insp-04-zara-estate.jpg" alt="ZARA | Una Giornata D'Estate" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">ZARA | Una Giornata D'Estate</span>
       <span class="ja">ZARA「Una Giornata D'Estate」</span>
@@ -278,7 +285,7 @@
   </article>
 
   <article class="grid-item" data-category="auto" data-type="vimeo" data-id="988863787">
-    <img class="thumb" src="assets/insp-05-ford.jpg" alt="FORD Starting Line" loading="lazy">
+    <img class="thumb" src="assets/insp-05-ford.jpg" alt="FORD Starting Line" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">FORD 'Starting Line'</span>
       <span class="ja">Ford「Starting Line」</span>
@@ -287,7 +294,7 @@
   </article>
 
   <article class="grid-item" data-category="doc" data-type="vimeo" data-id="1046652025">
-    <img class="thumb" src="assets/insp-06-andre-chiang.jpg" alt="Breaking Bread With Chef André Chiang" loading="lazy">
+    <img class="thumb" src="assets/insp-06-andre-chiang.jpg" alt="Breaking Bread With Chef André Chiang" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">Breaking Bread With Chef André Chiang</span>
       <span class="ja">Breaking Bread With Chef André Chiang</span>
@@ -296,7 +303,7 @@
   </article>
 
   <article class="grid-item" data-category="auto" data-type="vimeo" data-id="1067675803">
-    <img class="thumb" src="assets/insp-07-renault.jpg" alt="RENAULT - VOYAGE" loading="lazy">
+    <img class="thumb" src="assets/insp-07-renault.jpg" alt="RENAULT - VOYAGE" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">RENAULT - VOYAGE</span>
       <span class="ja">RENAULT - VOYAGE</span>
@@ -305,7 +312,7 @@
   </article>
 
   <article class="grid-item" data-category="doc" data-type="vimeo" data-id="1088844487">
-    <img class="thumb" src="assets/insp-08-longevity.jpg" alt="The Longevity Suite" loading="lazy">
+    <img class="thumb" src="assets/insp-08-longevity.jpg" alt="The Longevity Suite" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">The Longevity Suite</span>
       <span class="ja">The Longevity Suite</span>
@@ -314,7 +321,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="1153428861">
-    <img class="thumb" src="assets/insp-09-fourever.jpg" alt="FOUREVER" loading="lazy">
+    <img class="thumb" src="assets/insp-09-fourever.jpg" alt="FOUREVER" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">FOUREVER</span>
       <span class="ja">FOUREVER</span>
@@ -323,7 +330,7 @@
   </article>
 
   <article class="grid-item" data-category="sport" data-type="vimeo" data-id="1126691961">
-    <img class="thumb" src="assets/insp-10-tenore.jpg" alt="TENORE WETSUIT 2025" loading="lazy">
+    <img class="thumb" src="assets/insp-10-tenore.jpg" alt="TENORE WETSUIT 2025" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">TENORE WETSUIT 2025 (DC)</span>
       <span class="ja">TENORE WETSUIT 2025</span>
@@ -332,7 +339,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="1154070144">
-    <img class="thumb" src="assets/insp-11-sound-japan.jpg" alt="The Sound of Japan" loading="lazy">
+    <img class="thumb" src="assets/insp-11-sound-japan.jpg" alt="The Sound of Japan" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">The Sound of Japan</span>
       <span class="ja">The Sound of Japan</span>
@@ -341,7 +348,7 @@
   </article>
 
   <article class="grid-item" data-category="sport" data-type="vimeo" data-id="1120637830">
-    <img class="thumb" src="assets/insp-12-oysho.jpg" alt="Another Day at the Oysho Lab" loading="lazy">
+    <img class="thumb" src="assets/insp-12-oysho.jpg" alt="Another Day at the Oysho Lab" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">Another Day at the Oysho Lab</span>
       <span class="ja">Oysho Lab のある一日</span>
@@ -350,7 +357,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="164554825">
-    <img class="thumb" src="assets/insp-13-underwater.jpg" alt="underwater" loading="lazy">
+    <img class="thumb" src="assets/insp-13-underwater.jpg" alt="underwater" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">underwater</span>
       <span class="ja">underwater</span>
@@ -359,7 +366,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="463399563">
-    <img class="thumb" src="assets/insp-14-i-see-you.jpg" alt="I See You" loading="lazy">
+    <img class="thumb" src="assets/insp-14-i-see-you.jpg" alt="I See You" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">I See You</span>
       <span class="ja">I See You</span>
@@ -368,7 +375,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="529912607">
-    <img class="thumb" src="assets/insp-15-je-suis-responsable.jpg" alt="Je Suis Responsable" loading="lazy">
+    <img class="thumb" src="assets/insp-15-je-suis-responsable.jpg" alt="Je Suis Responsable" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">Je Suis Responsable</span>
       <span class="ja">Je Suis Responsable</span>
@@ -377,7 +384,7 @@
   </article>
 
   <article class="grid-item" data-category="sport" data-type="vimeo" data-id="541740248">
-    <img class="thumb" src="assets/insp-16-pop-trading.jpg" alt="Pop Trading Company - Never Out of Stock" loading="lazy">
+    <img class="thumb" src="assets/insp-16-pop-trading.jpg" alt="Pop Trading Company - Never Out of Stock" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">Pop Trading Company — Never Out of Stock</span>
       <span class="ja">Pop Trading Company「Never Out of Stock」</span>
@@ -386,7 +393,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="749095835">
-    <img class="thumb" src="assets/insp-17-polo-pan.jpg" alt="POLO PAN - COEUR CROISÉ" loading="lazy">
+    <img class="thumb" src="assets/insp-17-polo-pan.jpg" alt="POLO PAN - COEUR CROISÉ" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">POLO PAN - COEUR CROISÉ</span>
       <span class="ja">POLO PAN「COEUR CROISÉ」</span>
@@ -395,7 +402,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="165017258">
-    <img class="thumb" src="assets/insp-18-artifacts.jpg" alt="ARTIFACTS Fashion Film" loading="lazy">
+    <img class="thumb" src="assets/insp-18-artifacts.jpg" alt="ARTIFACTS Fashion Film" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">ARTIFACTS | Fashion Film</span>
       <span class="ja">ARTIFACTS｜ファッションフィルム</span>
@@ -404,7 +411,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="239543861">
-    <img class="thumb" src="assets/insp-19-three.jpg" alt="THREE Fashion Film" loading="lazy">
+    <img class="thumb" src="assets/insp-19-three.jpg" alt="THREE Fashion Film" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">THREE | FASHION FILM</span>
       <span class="ja">THREE｜ファッションフィルム</span>
@@ -413,7 +420,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="860458983">
-    <img class="thumb" src="assets/insp-20-backdoor-market.jpg" alt="Backdoor Market chapter 1" loading="lazy">
+    <img class="thumb" src="assets/insp-20-backdoor-market.jpg" alt="Backdoor Market chapter 1" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">Backdoor Market | chapter 1</span>
       <span class="ja">Backdoor Market｜chapter 1</span>
@@ -422,7 +429,7 @@
   </article>
 
   <article class="grid-item" data-category="doc" data-type="vimeo" data-id="303288484">
-    <img class="thumb" src="assets/insp-21-cerruti.jpg" alt="CERRUTI 1881 Shared Wardrobe" loading="lazy">
+    <img class="thumb" src="assets/insp-21-cerruti.jpg" alt="CERRUTI 1881 Shared Wardrobe" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">CERRUTI 1881 - Shared Wardrobe</span>
       <span class="ja">CERRUTI 1881「Shared Wardrobe」</span>
@@ -431,7 +438,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="48835433">
-    <img class="thumb" src="assets/insp-22-mordekai.jpg" alt="MORDEKAI X KEN BOROCHOV" loading="lazy">
+    <img class="thumb" src="assets/insp-22-mordekai.jpg" alt="MORDEKAI X KEN BOROCHOV" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">MORDEKAI X KEN BOROCHOV</span>
       <span class="ja">MORDEKAI × KEN BOROCHOV</span>
@@ -440,7 +447,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="1068644339">
-    <img class="thumb" src="assets/insp-23-earthly-adornments.jpg" alt="Earthly Adornments" loading="lazy">
+    <img class="thumb" src="assets/insp-23-earthly-adornments.jpg" alt="Earthly Adornments" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">Earthly Adornments</span>
       <span class="ja">Earthly Adornments</span>
@@ -449,7 +456,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="322116404">
-    <img class="thumb" src="assets/insp-24-losgeloest.jpg" alt="Losgelöst A Fashion Film" loading="lazy">
+    <img class="thumb" src="assets/insp-24-losgeloest.jpg" alt="Losgelöst A Fashion Film" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">Losgelöst | A Fashion Film</span>
       <span class="ja">Losgelöst｜A Fashion Film</span>
@@ -458,7 +465,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="444278218">
-    <img class="thumb" src="assets/insp-25-gamme-blanche.jpg" alt="Gamme Blanche | Daily" loading="lazy">
+    <img class="thumb" src="assets/insp-25-gamme-blanche.jpg" alt="Gamme Blanche | Daily" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">Gamme Blanche | Daily</span>
       <span class="ja">Gamme Blanche｜Daily</span>
@@ -467,7 +474,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="139569420">
-    <img class="thumb" src="assets/insp-26-breaking-rules.jpg" alt="Breaking Rules" loading="lazy">
+    <img class="thumb" src="assets/insp-26-breaking-rules.jpg" alt="Breaking Rules" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">Breaking Rules</span>
       <span class="ja">Breaking Rules</span>
@@ -476,7 +483,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="749220347">
-    <img class="thumb" src="assets/insp-27-flowers.jpg" alt="FLOWERS" loading="lazy">
+    <img class="thumb" src="assets/insp-27-flowers.jpg" alt="FLOWERS" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">FLOWERS</span>
       <span class="ja">FLOWERS</span>
@@ -485,7 +492,7 @@
   </article>
 
   <article class="grid-item" data-category="doc" data-type="vimeo" data-id="389217139">
-    <img class="thumb" src="assets/insp-28-muxes.jpg" alt="MUXES" loading="lazy">
+    <img class="thumb" src="assets/insp-28-muxes.jpg" alt="MUXES" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">MUXES</span>
       <span class="ja">MUXES</span>
@@ -494,7 +501,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="202796971">
-    <img class="thumb" src="assets/insp-29-cracked-screen.jpg" alt="CRACKED SCREEN" loading="lazy">
+    <img class="thumb" src="assets/insp-29-cracked-screen.jpg" alt="CRACKED SCREEN" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">CRACKED SCREEN</span>
       <span class="ja">CRACKED SCREEN</span>
@@ -503,7 +510,7 @@
   </article>
 
   <article class="grid-item" data-category="doc" data-type="vimeo" data-id="447070628">
-    <img class="thumb" src="assets/insp-30-far-from-now.jpg" alt="Far From Now" loading="lazy">
+    <img class="thumb" src="assets/insp-30-far-from-now.jpg" alt="Far From Now" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">Far From Now</span>
       <span class="ja">Far From Now</span>
@@ -512,7 +519,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="992764100">
-    <img class="thumb" src="assets/insp-31-one-night-all-night.jpg" alt="One Night/All Night" loading="lazy">
+    <img class="thumb" src="assets/insp-31-one-night-all-night.jpg" alt="One Night/All Night" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">One Night / All Night</span>
       <span class="ja">One Night / All Night</span>
@@ -521,7 +528,7 @@
   </article>
 
   <article class="grid-item" data-category="fashion" data-type="vimeo" data-id="1091194695">
-    <img class="thumb" src="assets/insp-32-alika.jpg" alt="ALIKA x MENS" loading="lazy">
+    <img class="thumb" src="assets/insp-32-alika.jpg" alt="ALIKA x MENS" loading="lazy" decoding="async">
     <span class="overlay">
       <span class="en">ALIKA x MENS</span>
       <span class="ja">ALIKA × MENS</span>
@@ -530,31 +537,31 @@
   </article>
 
   <article class="grid-item" data-category="ai" data-type="youtube" data-id="ZkEi1KU6DtQ">
-    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/a-face-only-a-mother-could-love_web-v2.webp" alt="A Face Only A Mother Could Love — Runway AI Film Festival Grand Prix" loading="lazy" referrerpolicy="no-referrer">
+    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/a-face-only-a-mother-could-love_web-v2.webp" alt="A Face Only A Mother Could Love — Runway AI Film Festival Grand Prix" loading="lazy" decoding="async" referrerpolicy="no-referrer">
     <span class="overlay"><span class="en">A Face Only A Mother Could Love</span><span class="ja">Runway AIF Grand Prix</span></span>
     <span class="badge">AI 映像</span>
   </article>
 
   <article class="grid-item" data-category="ai" data-type="youtube" data-id="yBs_pMUDrrk">
-    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/the-well_web-v2.webp" alt="THE WELL — Runway AI Film Festival Gold" loading="lazy" referrerpolicy="no-referrer">
+    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/the-well_web-v2.webp" alt="THE WELL — Runway AI Film Festival Gold" loading="lazy" decoding="async" referrerpolicy="no-referrer">
     <span class="overlay"><span class="en">THE WELL</span><span class="ja">Runway AIF Gold</span></span>
     <span class="badge">AI 映像</span>
   </article>
 
   <article class="grid-item" data-category="ai" data-type="youtube" data-id="dcXw2VyYEPU">
-    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/where-knights-fall.webp" alt="Where Knights Fall — Runway AI Film Festival Silver" loading="lazy" referrerpolicy="no-referrer">
+    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/where-knights-fall.webp" alt="Where Knights Fall — Runway AI Film Festival Silver" loading="lazy" decoding="async" referrerpolicy="no-referrer">
     <span class="overlay"><span class="en">Where Knights Fall</span><span class="ja">Runway AIF Silver</span></span>
     <span class="badge">AI 映像</span>
   </article>
 
   <article class="grid-item" data-category="ai" data-type="youtube" data-id="CGwVeRd9Uuc">
-    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/costa-verde.webp" alt="Costa Verde — Runway AI Film Festival Honoree" loading="lazy" referrerpolicy="no-referrer">
+    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/costa-verde.webp" alt="Costa Verde — Runway AI Film Festival Honoree" loading="lazy" decoding="async" referrerpolicy="no-referrer">
     <span class="overlay"><span class="en">Costa Verde</span><span class="ja">Runway AIF Honoree</span></span>
     <span class="badge">AI 映像</span>
   </article>
 
   <article class="grid-item" data-category="ai" data-type="youtube" data-id="-hcn82vwCr8">
-    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/tairell-isnt-real_web-v2.webp" alt="TAIRELL ISN'T REAL — Runway AI Film Festival Honoree" loading="lazy" referrerpolicy="no-referrer">
+    <img class="thumb" src="https://d3phaj0sisr2ct.cloudfront.net/site/assets/tairell-isnt-real_web-v2.webp" alt="TAIRELL ISN'T REAL — Runway AI Film Festival Honoree" loading="lazy" decoding="async" referrerpolicy="no-referrer">
     <span class="overlay"><span class="en">TAIRELL ISN'T REAL</span><span class="ja">Runway AIF Honoree</span></span>
     <span class="badge">AI 映像</span>
   </article>
@@ -652,6 +659,15 @@
           `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
                    allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
            <a class="player-frame__external" href="https://www.youtube.com/watch?v=${ytId}" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>`
+        );
+      } else if (type === 'instagram') {
+        const match = String(url || '').match(/^https?:\/\/(?:www\.)?instagram\.com\/(?:reel|reels|p)\/([A-Za-z0-9_-]+)/i);
+        if (!match) return;
+        const shortcode = match[1];
+        openLightbox(
+          `<iframe src="https://www.instagram.com/reel/${shortcode}/embed/captioned/"
+                   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+           <a class="player-frame__external" href="https://www.instagram.com/reel/${shortcode}/" target="_blank" rel="noopener noreferrer">Open on Instagram ↗</a>`
         );
       } else if (type === 'mp4' && src) {
         openLightbox(

@@ -2,10 +2,115 @@ window.JENKIN_PROJECTS = {
   "ai1": {
     "video": "https://geo.dailymotion.com/player.html?video=xat4pby&autoplay=0&mute=1&controls=1",
     "external": "https://www.dailymotion.com/video/xat4pby",
-    "stills": []
+    "stills": [
+      "assets/bmw-ai-still-01.png",
+      "assets/bmw-ai-still-02.png",
+      "assets/bmw-ai-still-03.png",
+      "assets/bmw-ai-still-04.png",
+      "assets/bmw-ai-still-05.png",
+      "assets/bmw-ai-still-06.png",
+      "assets/bmw-ai-still-07.png",
+      "assets/bmw-ai-still-08.png",
+      "assets/bmw-ai-still-09.png",
+      "assets/bmw-ai-still-10.png",
+      "assets/bmw-ai-still-11.png"
+    ]
+  },
+  "trailer1": {
+    "video": "https://geo.dailymotion.com/player.html?video=xatdejm&autoplay=0&mute=1&controls=1",
+    "external": "https://www.dailymotion.com/video/xatdejm",
+    "stills": [
+      "https://s1.dmcdn.net/v/c-o_Y1gQl7XRdlnWc"
+    ]
+  },
+  "short1": {
+    "videos": [
+      {
+        "label": "TEASER 05S",
+        "source": "https://geo.dailymotion.com/player.html?video=k4NaWp4qDgelbGIg2dA&autoplay=0&mute=1&controls=1"
+      },
+      {
+        "label": "TEASER 15S",
+        "source": "https://geo.dailymotion.com/player.html?video=kebOmn3bSNLZ9iIg2pk&autoplay=0&mute=1&controls=1"
+      }
+    ],
+    "external": "https://dai.ly/kebOmn3bSNLZ9iIg2pk",
+    "stills": [
+      "assets/loewe-still-07.png",
+      "assets/loewe-still-08.png",
+      "assets/loewe-still-05.png",
+      "assets/loewe-still-02.png",
+      "assets/loewe-still-09.png",
+      "assets/loewe-still-04.png",
+      "assets/loewe-still-10.png",
+      "assets/loewe-still-03.png",
+      "assets/loewe-still-01.png",
+      "assets/loewe-still-06.png"
+    ]
+  },
+  "short2": {
+    "videos": [
+      {
+        "label": "01 — さぼる御曹司",
+        "source": "https://geo.dailymotion.com/player.html?video=k1LmMDjMVTnaa3Ig3FA&autoplay=0&mute=1&controls=1"
+      },
+      {
+        "label": "02 — 悲しい御曹司",
+        "source": "https://geo.dailymotion.com/player.html?video=k7Gjd836myWBCyIg3GW&autoplay=0&mute=1&controls=1"
+      },
+      {
+        "label": "03 — 爆笑する御曹司",
+        "source": "https://geo.dailymotion.com/player.html?video=k4Q6XrPKNKHBzNIg3IC&autoplay=0&mute=1&controls=1"
+      },
+      {
+        "label": "04 — ノルマ達成の話",
+        "source": "https://geo.dailymotion.com/player.html?video=k7jQWVce2zlYuUIg3Km&autoplay=0&mute=1&controls=1"
+      }
+    ],
+    "external": "https://dai.ly/k1LmMDjMVTnaa3Ig3FA",
+    "stills": [
+      "assets/acecraft-still-01.png",
+      "assets/acecraft-still-02.png",
+      "assets/acecraft-still-03.png",
+      "assets/acecraft-still-04.png",
+      "assets/acecraft-still-05.png",
+      "assets/acecraft-still-06.png",
+      "assets/acecraft-still-07.png",
+      "assets/acecraft-still-08.png",
+      "assets/acecraft-still-09.png",
+      "assets/acecraft-still-10.png"
+    ]
+  },
+  "brand1": {
+    "video": "https://geo.dailymotion.com/player.html?video=k3pTQ0Lf2l7GcqIg2ya&autoplay=0&mute=1&controls=1",
+    "external": "https://dai.ly/k3pTQ0Lf2l7GcqIg2ya",
+    "stills": [
+      "assets/skate-still-01.png",
+      "assets/skate-still-02.png",
+      "assets/skate-still-06.png",
+      "assets/skate-still-03.png",
+      "assets/skate-still-05.png",
+      "assets/skate-still-04.png",
+      "assets/skate-still-07.png",
+      "assets/skate-still-08.png",
+      "assets/skate-still-09.png",
+      "assets/skate-still-10.png",
+      "assets/skate-still-15.png",
+      "assets/skate-still-21.png",
+      "assets/skate-still-18.png",
+      "assets/skate-still-16.png",
+      "assets/skate-still-11.png",
+      "assets/skate-still-14.png",
+      "assets/skate-still-12.png",
+      "assets/skate-still-13.png",
+      "assets/skate-still-17.png",
+      "assets/skate-still-19.png",
+      "assets/skate-still-20.png",
+      "assets/skate-still-22.png"
+    ]
   },
   "ad1": {
-    "video": "https://www.dailymotion.com/embed/video/kjuTIFHbXSbtZZEChRm?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9xbwqo&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad1-still-1.jpg",
@@ -69,7 +174,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad4": {
-    "video": "https://www.dailymotion.com/embed/video/kzof2v8EgFNhUnFzmzI?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=xa5poja&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad4-still-1.jpg",
@@ -87,7 +192,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad5": {
-    "video": "https://www.dailymotion.com/embed/video/k5D5724FrXquFjDZvbQ?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9rtsde&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad5-still-1.jpg",
@@ -105,7 +210,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad6": {
-    "video": "https://www.dailymotion.com/embed/video/k4UWXtdSub7HpYDZv3K?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9rtrzg&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad6-still-1.jpg",
@@ -123,7 +228,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad7": {
-    "video": "https://www.dailymotion.com/embed/video/k6nfnWfZl2LgpyDZPzG?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9rvgu0&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad7-still-1.jpg",
@@ -141,7 +246,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad8": {
-    "video": "https://www.dailymotion.com/embed/video/k4rXUtAILq4MVXDZxlI?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9rtyry&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad8-still-1.jpg",
@@ -159,7 +264,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad9": {
-    "video": "https://www.dailymotion.com/embed/video/k4afDjwwQPCNzuDZxsq?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9rtz3i&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad9-still-1.jpg",
@@ -177,7 +282,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad10": {
-    "video": "https://www.dailymotion.com/embed/video/k3B0MY3ktXpW2aDZy3q?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9ru0v8&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad10-still-1.jpg",
@@ -195,7 +300,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad11": {
-    "video": "https://www.dailymotion.com/embed/video/k6iTLedFjUHYdUDZPeE?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9rvfts&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad11-still-1.jpg",
@@ -213,7 +318,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad12": {
-    "video": "https://www.dailymotion.com/embed/video/k66pWYAosC3ebRDZPDI?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9rvh0y&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad12-still-1.jpg",
@@ -231,7 +336,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad13": {
-    "video": "https://www.dailymotion.com/embed/video/k4rwM6phrB4nSGE2BiE?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9s9m6g&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad13-still-1.jpg",
@@ -249,7 +354,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad14": {
-    "video": "https://www.dailymotion.com/embed/video/k6qN91xnSHsjE3E2BgS?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9s9m3e&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad14-still-1.jpg",
@@ -263,7 +368,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad15": {
-    "video": "https://www.dailymotion.com/embed/video/k8QqtcrY2lL1KzE2BfI?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9s9m1e&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad15-still-1.jpg",
@@ -281,7 +386,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad16": {
-    "video": "https://www.dailymotion.com/embed/video/k4sJNAte5D21OcE2Bf8?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9s9m0e&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad16-still-1.jpg",
@@ -295,7 +400,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad17": {
-    "video": "https://www.dailymotion.com/embed/video/k38xoe2DJmOMfoE2SaA?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9sb07s&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad17-still-1.jpg",
@@ -309,7 +414,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad18": {
-    "video": "https://www.dailymotion.com/embed/video/kLio2PfRvAzNO9E2Scu?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9sb0b2&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad18-still-1.jpg",
@@ -327,7 +432,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad19": {
-    "video": "https://www.dailymotion.com/embed/video/k14rpT8bTNHB7nECTNY?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9xf1ae&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad19-still-1.jpg",
@@ -345,7 +450,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad20": {
-    "video": "https://www.dailymotion.com/embed/video/k5QhRcdoZ5BKJzECTRy?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9xf1gk&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad20-still-1.jpg",
@@ -363,7 +468,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad21": {
-    "video": "https://www.dailymotion.com/embed/video/k6wl7DhqR13VvXE4Tpi?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9slboc&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/ad21-still-1.jpg",
@@ -381,7 +486,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad22": {
-    "video": "https://www.dailymotion.com/embed/video/kq21GZvfUvTpCNDZPzG?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9rvgu0&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/doc4-still-1.jpg",
@@ -399,7 +504,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "doc1": {
-    "video": "https://www.dailymotion.com/embed/video/k10zR8W2w9121oDZxOQ?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9ru064&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/doc1-still-1.jpg",
@@ -417,7 +522,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "doc2": {
-    "video": "https://www.dailymotion.com/embed/video/k1KTRLXBqoZFK9DZxOa?autoplay=0&mute=1&controls=1&queue-enable=false&ui-start-screen-info=false&sharing-enable=false&endscreen-enable=false",
+    "video": "https://geo.dailymotion.com/player.html?video=x9ru04y&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
       "assets/doc2-still-1.jpg",
@@ -437,6 +542,23 @@ window.JENKIN_PROJECTS = {
   "doc3": {
     "video": null,
     "external": "https://www.iqiyi.com/v_itfm26oh48.html",
-    "stills": []
+    "description": {
+      "zh": [
+        "《六个团子》是国内首档陪伴养成式动物纪录片。团队历时半年，在上海野生动物园持续跟拍多种“小生命”，以细腻的镜头语言记录它们的成长与互动，展现动物与人类情感的微妙共鸣。",
+        "作为主剪辑师，我负责整体节奏与叙事结构设计，从海量素材中提炼核心情绪与故事主线；通过留白与呼吸的控制，让观众在平静的叙事中获得陪伴感与疗愈感。"
+      ],
+      "ja": [
+        "『六つの団子』は、上海野生動物園で半年間にわたり撮影を行い、動物たちの成長と人間との共鳴を丁寧に描いたアニマル・ドキュメンタリーです。",
+        "主編集者として、作品全体のリズムと感情の流れを統括。映像の呼吸と間を大切にし、静かな感動と寄り添う感覚を生み出す編集を目指しました。"
+      ],
+      "en": [
+        "Six Dumplings is a companion-style animal documentary filmed over six months at Shanghai Wildlife Park, capturing young animals' growth and their subtle connection with people.",
+        "As lead editor, I shaped the pacing and emotional architecture from extensive footage, using rhythm, silence, and visual breathing space to create a gentle sense of companionship."
+      ]
+    },
+    "stills": [
+      "assets/doc3-thumb.png",
+      "assets/doc3-video.png"
+    ]
   }
 };

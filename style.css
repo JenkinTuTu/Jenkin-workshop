@@ -1231,6 +1231,15 @@ input:focus, textarea:focus{ outline:none; border-color:#cfcfcf; box-shadow: 0 0
 .work-modal__content .stills {
   margin-bottom: 20px;
   padding-inline: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 210px));
+  justify-content: start;
+  gap: 12px;
+}
+
+.work-modal__content .stills img {
+  height: 120px;
+  object-fit: cover;
 }
 
 .work-modal__section-title {
@@ -1648,4 +1657,30 @@ body > footer a {
     width: calc(100% - 24px);
     max-width: none;
   }
+}
+
+/* Keep project-detail stills as a compact contact sheet, even with only one image. */
+.work-modal__content .stills {
+  grid-template-columns: repeat(auto-fill, minmax(160px, 210px));
+  justify-content: start;
+  gap: 12px;
+}
+
+.work-modal__content .stills img {
+  width: 100%;
+  height: 120px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.work-modal__description {
+  max-width: 760px;
+  margin: 0 0 28px;
+  color: rgba(246, 243, 233, 0.82);
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+.work-modal__description p {
+  margin: 0 0 14px;
 }

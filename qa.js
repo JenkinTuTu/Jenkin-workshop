@@ -6,7 +6,7 @@ import { JSDOM } from 'jsdom';
 const PAGES = await fg(['index.html','ads.html','doc*.html','ad*.html','**/contact.html'], { dot:false });
 
 const issues = [];
-const okCats = new Set(['beauty','auto','fashion','brand','doc']);
+const okCats = new Set(['beauty','auto','fashion','brand','doc','ai','short','trailer','sport','instagram']);
 
 for (const file of PAGES) {
   const html = fs.readFileSync(file, 'utf8');

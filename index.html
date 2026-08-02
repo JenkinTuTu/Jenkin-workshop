@@ -72,12 +72,13 @@
     <a class="logo" href="index.html" aria-label="JENKIN Workshop ホームに戻る" data-i18n-aria-label="logoAriaLabel">
       <span class="logo__text">JENKIN</span>
       <span class="logo__sub">Workshop</span>
+      <span class="logo__role" data-i18n="brandRole">Film Editor &amp; AI Visual Creator</span>
     </a>
 
     <nav class="site-nav" aria-label="メインナビゲーション" data-i18n-aria-label="navAriaLabel">
       <a href="index.html" class="site-nav__link site-nav__link--active" aria-current="page" data-i18n="navWork">work</a>
       <a href="contact.html" class="site-nav__link" data-i18n="navContact">contact</a>
-      <a href="ads.html" class="site-nav__link" data-i18n="navAds">ads</a>
+      <a href="ads.html" class="site-nav__link" data-i18n="navAds">inspiration</a>
       <div class="lang-switcher" role="group" aria-label="Language Switcher" data-i18n-aria-label="langSwitcherAria">
         <button class="lang-switcher__btn" type="button" data-lang="zh">中</button>
         <button class="lang-switcher__btn" type="button" data-lang="ja">日</button>
@@ -88,19 +89,28 @@
 
   </header>
   <main class="site-main">
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="home-hero__inner" data-lang-panel="zh">
+        <h1 id="home-title">影视剪辑师<br><span>&amp; AI 视觉创作者</span></h1>
+        <p class="home-hero__intro">商业广告、品牌影像与纪录片叙事。</p>
+        <div class="home-hero__facts" aria-label="Professional profile">
+          <span>常驻东京</span>
+          <span>5年以上专业经验</span>
+        </div>
+      </div>
+      <div class="home-hero__inner" data-lang-panel="ja" hidden><h1>映像編集者<br><span>&amp; AIビジュアルクリエイター</span></h1><p class="home-hero__intro">広告、ブランドフィルム、ドキュメンタリーのための映像編集。</p><div class="home-hero__facts"><span>東京を拠点に活動</span><span>映像編集歴5年以上</span></div></div>
+      <div class="home-hero__inner" data-lang-panel="en" hidden><h1>Film Editor<br><span>&amp; AI Visual Creator</span></h1><p class="home-hero__intro">Commercials, Brand Films and Documentary Storytelling.</p><div class="home-hero__facts"><span>Tokyo Based</span><span>5+ Years Professional Experience</span></div></div>
+    </section>
 
     <section class="works-section" aria-label="作品" data-i18n-aria-label="worksSectionAriaLabel">
       <!-- Category Filters (Home) -->
       <nav id="home-filters" class="filters" role="group" aria-label="作品カテゴリーで絞り込み" data-i18n-aria-label="filtersAriaLabel">
         <button class="filter-btn filter-btn--active" data-filter="all" aria-pressed="true" data-i18n="filterAll">All</button>
-        <button class="filter-btn" data-filter="beauty" aria-pressed="false" data-i18n="filterBeauty">Beauty｜ビューティー</button>
-        <button class="filter-btn" data-filter="auto" aria-pressed="false" data-i18n="filterAuto">Auto｜自動車</button>
-        <button class="filter-btn" data-filter="fashion" aria-pressed="false" data-i18n="filterFashion">Fashion｜ファッション</button>
+        <button class="filter-btn" data-filter="commercial" aria-pressed="false" data-i18n="filterCommercial">Commercial</button>
+        <button class="filter-btn" data-filter="fashion" aria-pressed="false" data-i18n="filterFashion">Fashion</button>
         <button class="filter-btn" data-filter="brand" aria-pressed="false" data-i18n="filterBrand">Brand Film｜ブランドフィルム</button>
-        <button class="filter-btn" data-filter="trailer" aria-pressed="false" data-i18n="filterTrailer">Film Trailers｜映画予告</button>
         <button class="filter-btn" data-filter="doc" aria-pressed="false" data-i18n="filterDoc">Documentary｜ドキュメンタリー</button>
         <button class="filter-btn" data-filter="ai" aria-pressed="false" data-i18n="filterAI">AI 映像</button>
-        <button class="filter-btn" data-filter="short" aria-pressed="false" data-i18n="filterShort">Shorts｜ショート動画</button>
       </nav>
       <div id="work-grid" class="grid-ads works-grid" role="list">
 
@@ -350,11 +360,14 @@
           navAriaLabel: '主导航',
           langSwitcherAria: '语言切换',
           navWork: '作品',
-          navContact: '联系',
+          navAbout: '关于',
+          brandRole: '影视剪辑师与 AI 视觉创作者',
+          navContact: '关于与联系',
           navAds: '灵感收集',
           filtersAriaLabel: '按作品类别筛选',
           worksSectionAriaLabel: '作品',
           filterAll: '全部',
+          filterCommercial: '商业广告',
           filterBeauty: '美妆',
           filterAuto: '汽车',
           filterFashion: '时尚',
@@ -420,11 +433,14 @@
           navAriaLabel: 'メインナビゲーション',
           langSwitcherAria: '言語切り替え',
           navWork: '作品',
-          navContact: 'お問い合わせ',
+          navAbout: 'プロフィール',
+          brandRole: '映像編集者／AIビジュアルクリエイター',
+          navContact: 'プロフィール・お問い合わせ',
           navAds: 'インスピレーション',
           filtersAriaLabel: '作品カテゴリーで絞り込み',
           worksSectionAriaLabel: '作品',
           filterAll: 'すべて',
+          filterCommercial: 'コマーシャル',
           filterBeauty: 'ビューティー',
           filterAuto: '自動車',
           filterFashion: 'ファッション',
@@ -490,11 +506,14 @@
           navAriaLabel: 'Main navigation',
           langSwitcherAria: 'Language switcher',
           navWork: 'Work',
-          navContact: 'Contact',
+          navAbout: 'About',
+          brandRole: 'Film Editor & AI Visual Creator',
+          navContact: 'About & Contact',
           navAds: 'Inspiration',
           filtersAriaLabel: 'Filter work by category',
           worksSectionAriaLabel: 'Work',
           filterAll: 'All',
+          filterCommercial: 'Commercial',
           filterBeauty: 'Beauty',
           filterAuto: 'Auto',
           filterFashion: 'Fashion',
@@ -647,6 +666,50 @@
             introduction.append(paragraph);
           });
           fragment.append(introduction);
+        }
+        if (project.meta) {
+          const metadata = document.createElement('dl');
+          metadata.className = 'work-modal__metadata';
+          const labelsByLanguage = {
+            zh: { role: '职责', client: '客户', year: '年份', category: '类别' },
+            ja: { role: '役割', client: 'クライアント', year: '年', category: 'カテゴリー' },
+            en: { role: 'Role', client: 'Client', year: 'Year', category: 'Category' }
+          };
+          const valuesByLanguage = {
+            zh: {
+              'Film Editor': '影视剪辑师',
+              'Film Editor & AI Visual Creator': '影视剪辑师与 AI 视觉创作者',
+              'China National Skateboarding Team': '中国国家滑板队',
+              'AI Film': 'AI 视频',
+              'Fashion Film': '时尚影片',
+              'Brand Film': '品牌影片',
+              'Commercial': '商业广告',
+              'Editorial Film': '时尚编辑影片'
+            },
+            ja: {
+              'Film Editor': '映像編集',
+              'Film Editor & AI Visual Creator': '映像編集／AI映像クリエイター',
+              'China National Skateboarding Team': '中国ナショナルスケートボードチーム',
+              'AI Film': 'AI 映像',
+              'Fashion Film': 'ファッションフィルム',
+              'Brand Film': 'ブランドフィルム',
+              'Commercial': 'コマーシャル',
+              'Editorial Film': 'エディトリアルフィルム'
+            },
+            en: {}
+          };
+          const labels = labelsByLanguage[language] || labelsByLanguage.en;
+          Object.entries(project.meta).forEach(([key, value]) => {
+            if (!value || !labels[key]) return;
+            const entry = document.createElement('div');
+            const term = document.createElement('dt');
+            const detail = document.createElement('dd');
+            term.textContent = labels[key];
+            detail.textContent = valuesByLanguage[language]?.[value] || value;
+            entry.append(term, detail);
+            metadata.append(entry);
+          });
+          if (metadata.childElementCount) fragment.append(metadata);
         }
         const videos = project.videos || (project.video ? [{ source: project.video }] : []);
         videos.forEach((clip) => {
@@ -834,13 +897,24 @@
   const btns  = Array.from(bar.querySelectorAll('button[data-filter]'));
   const items = Array.from(document.querySelectorAll('.grid-item'));
   const empty = document.getElementById('filter-empty');
+  const featuredOrder = ['ai1', 'short1', 'ad1', 'ad4', 'brand1', 'ad14', 'doc1', 'doc2', 'doc3'];
+  const grid = document.getElementById('work-grid');
+
+  if (grid) {
+    items.sort((a, b) => {
+      const aRank = featuredOrder.indexOf(a.querySelector('[data-project]')?.dataset.project);
+      const bRank = featuredOrder.indexOf(b.querySelector('[data-project]')?.dataset.project);
+      return (aRank < 0 ? featuredOrder.length : aRank) - (bRank < 0 ? featuredOrder.length : bRank);
+    }).forEach((item) => grid.append(item));
+  }
 
   function apply(category) {
     const cat = String(category || 'all').toLowerCase();
     let visibleCount = 0;
     items.forEach(el => {
       const categories = (el.dataset.category || '').toLowerCase().trim().split(/\s+/);
-      const show = (cat === 'all') || categories.includes(cat);
+      const isCommercial = categories.some((category) => ['beauty', 'auto', 'short'].includes(category));
+      const show = (cat === 'all') || (cat === 'commercial' ? isCommercial : categories.includes(cat));
       el.toggleAttribute('hidden', !show);
       if (show) visibleCount += 1;
     });

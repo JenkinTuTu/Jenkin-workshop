@@ -1,5 +1,6 @@
 window.JENKIN_PROJECTS = {
   "ai1": {
+    "meta": { "role": "Film Editor & AI Visual Creator", "client": "BMW", "category": "AI Film" },
     "video": "https://geo.dailymotion.com/player.html?video=xat4pby&autoplay=0&mute=1&controls=1",
     "external": "https://www.dailymotion.com/video/xat4pby",
     "stills": [
@@ -24,6 +25,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "short1": {
+    "meta": { "role": "Film Editor", "client": "LOEWE", "category": "Fashion Film" },
     "videos": [
       {
         "label": "TEASER 05S",
@@ -82,6 +84,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "brand1": {
+    "meta": { "role": "Film Editor", "client": "China National Skateboarding Team", "category": "Brand Film" },
     "video": "https://geo.dailymotion.com/player.html?video=k3pTQ0Lf2l7GcqIg2ya&autoplay=0&mute=1&controls=1",
     "external": "https://dai.ly/k3pTQ0Lf2l7GcqIg2ya",
     "stills": [
@@ -110,6 +113,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad1": {
+    "meta": { "role": "Film Editor", "client": "Perfect Diary", "category": "Commercial" },
     "video": "https://geo.dailymotion.com/player.html?video=x9xbwqo&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
@@ -174,6 +178,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad4": {
+    "meta": { "role": "Film Editor", "client": "ASICS", "category": "Commercial" },
     "video": "https://geo.dailymotion.com/player.html?video=xa5poja&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
@@ -354,6 +359,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "ad14": {
+    "meta": { "role": "Film Editor", "client": "VOGUE", "category": "Editorial Film" },
     "video": "https://geo.dailymotion.com/player.html?video=x9s9m3e&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
@@ -504,6 +510,7 @@ window.JENKIN_PROJECTS = {
     ]
   },
   "doc1": {
+    "meta": { "role": "Film Editor", "client": "LOEWE", "category": "Brand Film" },
     "video": "https://geo.dailymotion.com/player.html?video=x9ru064&autoplay=0&mute=1&controls=1",
     "external": null,
     "stills": [
@@ -557,8 +564,7 @@ window.JENKIN_PROJECTS = {
       ]
     },
     "stills": [
-      "assets/doc3-thumb.png",
-      "assets/doc3-video.png"
+      "assets/doc3-thumb.png"
     ]
   }
 };

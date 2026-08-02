@@ -57,11 +57,12 @@
     <a class="logo" href="index.html" aria-label="JENKIN Workshop ホームに戻る" data-i18n-aria-label="logoAriaLabel">
       <span class="logo__text">JENKIN</span>
       <span class="logo__sub">Workshop</span>
+      <span class="logo__role" data-i18n="brandRole">Film Editor &amp; AI Visual Creator</span>
     </a>
     <nav class="site-nav" aria-label="メインナビゲーション" data-i18n-aria-label="navAriaLabel">
       <a href="index.html" class="site-nav__link" data-i18n="navWork">work</a>
       <a href="contact.html" class="site-nav__link site-nav__link--active" aria-current="page" data-i18n="navContact">contact</a>
-      <a href="ads.html" class="site-nav__link" data-i18n="navAds">ads</a>
+      <a href="ads.html" class="site-nav__link" data-i18n="navAds">inspiration</a>
       <div class="lang-switcher" role="group" aria-label="Language Switcher" data-i18n-aria-label="langSwitcherAria">
         <button class="lang-switcher__btn" type="button" data-lang="zh">中</button>
         <button class="lang-switcher__btn" type="button" data-lang="ja">日</button>
@@ -73,47 +74,49 @@
 
   <main class="site-main">
     <div class="contact-container">
-      <!-- 左栏：形象与社交 -->
       <aside class="contact-left">
-        <figure class="contact-photo">
-          <img src="assets/jenkin-portrait.jpg" alt="Jenkin - 映像編集者 ポートレート写真" width="600" height="750" loading="lazy">
-        </figure>
-
+        <figure class="contact-photo"><img src="assets/jenkin-portrait.jpg" alt="Jenkin portrait" width="600" height="750" loading="lazy" decoding="async"></figure>
         <div class="contact-meta">
-          <h1 class="contact-name">江山—Jenkin</h1>
-          <p class="contact-role" data-i18n="contactRole">Film Editor / 映像編集者 / 影视剪辑师</p>
+          <h1 class="contact-name">江山 — Jenkin</h1>
+          <p class="contact-role" data-i18n="contactRole">Film Editor &amp; AI Visual Creator</p>
           <ul class="contact-links">
             <li><a href="https://www.instagram.com/jenkin_ctutu/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-            <li><a href="https://www.xinpianchang.com/u10175898?channel=copyLink&amp;from=webShare" target="_blank" rel="noopener noreferrer">新片場</a></li>
+            <li><a href="https://www.xinpianchang.com/u10175898?channel=copyLink&amp;from=webShare" target="_blank" rel="noopener noreferrer">新片场</a></li>
             <li><a href="mailto:jenkin0119@gmail.com">jenkin0119@gmail.com</a></li>
-
-            <!-- 微信 -->
-            <li class="wechat-line">
-              <span class="label" data-i18n="wechatLabel">WeChat：</span>
-              <span class="value" title="クリックでコピー" data-i18n-title="wechatCopyTitle" onclick="navigator.clipboard && navigator.clipboard.writeText('Cjshan0119')" role="button" tabindex="0" onkeypress="if(event.key==='Enter')this.click()">Cjshan0119</span>
-            </li>
+            <li><span data-i18n="wechatLabel">WeChat:</span> <span class="value" data-i18n-title="wechatCopyTitle" title="Click to copy" onclick="navigator.clipboard && navigator.clipboard.writeText('Cjshan0119')" role="button" tabindex="0" onkeypress="if(event.key==='Enter')this.click()">Cjshan0119</span></li>
+            <li><span data-i18n="locationLabel">Location:</span> <span data-i18n="locationValue">Tokyo, Japan</span></li>
           </ul>
         </div>
       </aside>
-
-      <!-- 右栏：三语文案 + 表单 -->
       <section class="contact-right">
         <!-- 日文 -->
         <section class="copy" data-lang-panel="ja">
-          <h2>お問い合わせ</h2>
-          <p>Jenkin（ソウコウザン）は東京を拠点に活動する映像編集者です。広告、ドキュメンタリー，短編など、企画から仕上げまで横断し，最短動線で仕上げます。新規案件・コラボのご相談をお待ちしています。</p>
+          <p class="eyebrow">プロフィール・お問い合わせ</p>
+          <h2>私について</h2>
+          <p>広告、ブランドフィルム、ドキュメンタリーを中心に5年以上の映像編集経験を持ち、現在は東京を拠点に活動しています。生成AIを活用した新しい映像表現にも取り組んでいます。</p>
+          <p class="contact-inline-links"><a href="research.html">研究を読む →</a><a href="philosophy.html">理念を読む →</a></p>
+          <h3 class="contact-section-title">お問い合わせ</h3>
+          <p>広告、ブランドフィルム、ドキュメンタリー、AIを活用した映像表現に関するご相談を承ります。日本国内および海外のプロジェクトに対応しています。</p>
         </section>
 
         <!-- 中文 -->
         <section class="copy" data-lang-panel="zh" hidden>
-          <h2>联系方式</h2>
-          <p>常驻上海与东京的影视剪辑师，覆盖广告、纪录片与短片。擅长节奏与情绪线构建，保证叙事效率与品牌表达。欢迎就新项目或合作沟通。</p>
+          <p class="eyebrow">关于与联系</p>
+          <h2>关于我</h2>
+          <p>我是一名拥有5年以上商业广告、品牌影像与纪录片剪辑经验的影视剪辑师，目前常驻东京，并持续探索生成式AI在影视创作中的应用。</p>
+          <p class="contact-inline-links"><a href="research.html">查看研究 →</a><a href="philosophy.html">阅读创作理念 →</a></p>
+          <h3 class="contact-section-title">联系合作</h3>
+          <p>欢迎就商业广告、品牌影像、纪录片与 AI 影像创作联系合作。可参与日本及国际项目。</p>
         </section>
 
         <!-- English -->
         <section class="copy" data-lang-panel="en" hidden>
-          <h2>Contact</h2>
-          <p>Tokyo-based film editor across commercials, documentaries, and short-form. I shape pace and emotional arcs with clarity. Open to new projects and collaborations.</p>
+          <p class="eyebrow">ABOUT &amp; CONTACT</p>
+          <h2>About me</h2>
+          <p>I am a Tokyo-based Film Editor with more than five years of experience across commercials, brand films and documentaries, while actively exploring the creative potential of generative AI in filmmaking.</p>
+          <p class="contact-inline-links"><a href="research.html">View research →</a><a href="philosophy.html">Read philosophy →</a></p>
+          <h3 class="contact-section-title">Let’s work together.</h3>
+          <p>For commercials, brand films, documentaries and AI-driven moving-image projects in Japan and internationally.</p>
         </section>
 
         <!-- 表单 -->
@@ -165,10 +168,14 @@
           navAriaLabel: '主导航',
           langSwitcherAria: '语言切换',
           navWork: '作品',
-          navContact: '联系',
+          navAbout: '关于',
+          brandRole: '影视剪辑师与 AI 视觉创作者',
+          navContact: '关于与联系',
           navAds: '灵感收集',
-          contactRole: '影视剪辑师 / 映像編集者 / Film Editor',
+          contactRole: '影视剪辑师与 AI 视觉创作者',
           wechatLabel: '微信：',
+          locationLabel: '地点：',
+          locationValue: '东京，日本',
           wechatCopyTitle: '点击复制',
           formTitle: '联系表单',
           contactFormAria: '联系表单',
@@ -201,10 +208,14 @@
           navAriaLabel: 'メインナビゲーション',
           langSwitcherAria: '言語切り替え',
           navWork: '作品',
-          navContact: 'お問い合わせ',
+          navAbout: 'プロフィール',
+          brandRole: '映像編集者／AIビジュアルクリエイター',
+          navContact: 'プロフィール・お問い合わせ',
           navAds: 'インスピレーション',
-          contactRole: '映像編集者 / 影视剪辑师 / Film Editor',
+          contactRole: '映像編集者／AIビジュアルクリエイター',
           wechatLabel: 'WeChat：',
+          locationLabel: '拠点：',
+          locationValue: '東京、日本',
           wechatCopyTitle: 'クリックでコピー',
           formTitle: 'コンタクトフォーム',
           contactFormAria: 'お問い合わせフォーム',
@@ -237,10 +248,14 @@
           navAriaLabel: 'Main navigation',
           langSwitcherAria: 'Language switcher',
           navWork: 'Work',
-          navContact: 'Contact',
+          navAbout: 'About',
+          brandRole: 'Film Editor & AI Visual Creator',
+          navContact: 'About & Contact',
           navAds: 'Inspiration',
-          contactRole: 'Film Editor / 映像編集者 / 影视剪辑师',
+          contactRole: 'Film Editor & AI Visual Creator',
           wechatLabel: 'WeChat:',
+          locationLabel: 'Location:',
+          locationValue: 'Tokyo, Japan',
           wechatCopyTitle: 'Click to copy',
           formTitle: 'Contact Form',
           contactFormAria: 'Contact form',

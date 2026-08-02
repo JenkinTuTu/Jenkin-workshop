@@ -5,6 +5,11 @@
   const translations = config.translations;
   const defaultLang = config.defaultLang || 'ja';
   const storageKey = config.storageKey || 'site-language';
+  const sharedCopy = {
+    zh: { navAbout: '关于', navAds: '灵感收集', brandRole: '影视剪辑师与 AI 视觉创作者' },
+    ja: { navAbout: 'プロフィール', navAds: 'インスピレーション', brandRole: '映像編集者／AIビジュアルクリエイター' },
+    en: { navAbout: 'About', navAds: 'Inspiration', brandRole: 'Film Editor & AI Visual Creator' }
+  };
 
   let currentLang = defaultLang;
   let currentCopy = translations[defaultLang] || {};
@@ -12,16 +17,18 @@
   function updateText(copy) {
     document.querySelectorAll('[data-i18n]').forEach((node) => {
       const key = node.dataset.i18n;
-      if (!(key in copy)) return;
-      node.innerHTML = copy[key];
+      const value = copy[key] ?? sharedCopy[currentLang]?.[key];
+      if (value === undefined) return;
+      node.innerHTML = value;
     });
   }
 
   function updateAttribute(copy, selector, datasetKey, attrName) {
     document.querySelectorAll(selector).forEach((node) => {
       const key = node.dataset[datasetKey];
-      if (!(key in copy)) return;
-      node.setAttribute(attrName, copy[key]);
+      const value = copy[key] ?? sharedCopy[currentLang]?.[key];
+      if (value === undefined) return;
+      node.setAttribute(attrName, value);
     });
   }
 
@@ -117,7 +124,7 @@
       return currentCopy;
     },
     t(key) {
-      return currentCopy[key] ?? '';
+      return currentCopy[key] ?? sharedCopy[currentLang]?.[key] ?? '';
     }
   };
 

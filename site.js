@@ -13,7 +13,9 @@
       navAria: '主导航',
       langAria: '语言切换',
       navWork: '作品',
-      navContact: '联系',
+      navAbout: '关于',
+      brandRole: '影视剪辑师与 AI 视觉创作者',
+      navContact: '关于与联系',
       navAds: '灵感收集',
       footerLead: '联系我：'
     },
@@ -23,7 +25,9 @@
       navAria: 'メインナビゲーション',
       langAria: '言語切り替え',
       navWork: '作品',
-      navContact: 'お問い合わせ',
+      navAbout: 'プロフィール',
+      brandRole: '映像編集者／AIビジュアルクリエイター',
+      navContact: 'プロフィール・お問い合わせ',
       navAds: 'インスピレーション',
       footerLead: 'お問い合わせ：'
     },
@@ -33,7 +37,9 @@
       navAria: 'Main navigation',
       langAria: 'Language switcher',
       navWork: 'Work',
-      navContact: 'Contact',
+      navAbout: 'About',
+      brandRole: 'Film Editor & AI Visual Creator',
+      navContact: 'About & Contact',
       navAds: 'Inspiration',
       footerLead: 'Get in touch:'
     }
@@ -304,6 +310,8 @@
       switcher.setAttribute('aria-label', copy.langAria);
       if (logo) {
         logo.setAttribute('aria-label', copy.logoAria);
+        const role = logo.querySelector('.logo__role');
+        if (role) role.textContent = copy.brandRole;
       }
 
       navLinks.forEach((link) => {
@@ -311,6 +319,8 @@
         if (href === 'index.html') link.textContent = copy.navWork;
         if (href === 'contact.html') link.textContent = copy.navContact;
         if (href === 'ads.html') link.textContent = copy.navAds;
+        const key = link.dataset.navKey;
+        if (key && copy[key]) link.textContent = copy[key];
       });
 
       if (footerLead) {
@@ -339,6 +349,32 @@
     });
 
     applyLegacyLanguage(getSavedLang());
+  }
+
+  function ensureExpandedNavigation() {
+    const nav = doc.querySelector('body > header nav');
+    if (!nav) return;
+    const inspiration = nav.querySelector('a[href="ads.html"]');
+    const anchor = nav.querySelector('.lang-switcher') || doc.getElementById('tz-right');
+    if (!inspiration && anchor) {
+      const link = doc.createElement('a');
+      link.href = 'ads.html';
+      link.className = 'site-nav__link';
+      link.dataset.i18n = 'navAds';
+      nav.insertBefore(link, anchor);
+    }
+    const about = nav.querySelector('a[href="about.html"]');
+    if (about) about.hidden = true;
+
+    const applyNavigationCopy = (lang) => {
+      const copy = legacyCopy[lang] || legacyCopy.ja;
+      const contact = nav.querySelector('a[href="contact.html"]');
+      const ads = nav.querySelector('a[href="ads.html"]');
+      if (contact) contact.textContent = copy.navContact;
+      if (ads) ads.textContent = copy.navAds;
+    };
+    applyNavigationCopy(getSavedLang());
+    doc.addEventListener('site-languagechange', (event) => applyNavigationCopy(event.detail?.lang));
   }
 
   function mountTimezoneWidget() {
@@ -590,6 +626,7 @@
 
   function init() {
     initLegacyChrome();
+    ensureExpandedNavigation();
     initLegacyLanguageSwitcher();
     mountTimezoneWidget();
     initTouchCards();

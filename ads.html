@@ -17,7 +17,9 @@
           navAriaLabel: '主导航',
           langSwitcherAria: '语言切换',
           navWork: '作品',
-          navContact: '联系',
+          navAbout: '关于',
+          brandRole: '影视剪辑师与 AI 视觉创作者',
+          navContact: '关于与联系',
           navAds: '灵感收集',
           adsHeading: '灵感收集（按类型筛选 / 点击封面放大播放）',
           adsNote: '以下为从 Vimeo Staff Picks、Runway AI Film Festival、获奖作品与个人 Instagram 收藏中挑选的外部灵感样本，用来呈现我偏好的影像气质，不代表本站原创项目。',
@@ -29,12 +31,21 @@
           filterDoc: '品牌影片',
           filterAI: 'AI 视频',
           filterInstagram: 'Instagram 收藏',
+          instagramThemeAria: 'Instagram 收藏内容分类筛选',
+          instagramThemeAll: '全部',
+          instagramThemeFashion: '时尚',
+          instagramThemeSport: '运动',
+          instagramThemeCity: '城市',
+          instagramThemePerformance: '表演',
+          instagramThemeCreative: '创意',
           badge_sport: '运动',
           badge_auto: '汽车',
           badge_fashion: '时尚',
           badge_doc: '品牌影片',
           badge_ai: 'AI 视频',
           badge_instagram: 'Instagram 收藏',
+          instagramReelAria: '打开 Instagram 短片',
+          openInstagram: '在 Instagram 中观看 ↗',
           lightboxAria: '视频播放器',
           closePlayer: '关闭播放器',
           footerBase: '© 2025 Jenkin. 常驻东京，日本。',
@@ -47,7 +58,9 @@
           navAriaLabel: 'メインナビゲーション',
           langSwitcherAria: '言語切り替え',
           navWork: '作品',
-          navContact: 'お問い合わせ',
+          navAbout: 'プロフィール',
+          brandRole: '映像編集者／AIビジュアルクリエイター',
+          navContact: 'プロフィール・お問い合わせ',
           navAds: 'インスピレーション',
           adsHeading: 'インスピレーションコレクション（カテゴリで絞り込み / サムネイルをクリックして拡大再生）',
           adsNote: '以下は Vimeo Staff Picks、Runway AI Film Festival、受賞作と個人の Instagram 保存作品からキュレーションした外部リファレンスです。サイト上のオリジナル実績ではありません。',
@@ -59,12 +72,21 @@
           filterDoc: 'ブランド・ドキュメンタリー',
           filterAI: 'AI 映像',
           filterInstagram: 'Instagram 保存',
+          instagramThemeAria: 'Instagram保存の内容で絞り込み',
+          instagramThemeAll: 'すべて',
+          instagramThemeFashion: 'ファッション',
+          instagramThemeSport: 'スポーツ',
+          instagramThemeCity: '都市',
+          instagramThemePerformance: 'パフォーマンス',
+          instagramThemeCreative: 'クリエイティブ',
           badge_sport: 'スポーツ',
           badge_auto: '自動車',
           badge_fashion: 'ファッション',
           badge_doc: 'ブランド・ドキュメンタリー',
           badge_ai: 'AI 映像',
           badge_instagram: 'Instagram 保存',
+          instagramReelAria: 'Instagramリールを開く',
+          openInstagram: 'Instagramで見る ↗',
           lightboxAria: '動画プレーヤー',
           closePlayer: 'プレーヤーを閉じる',
           footerBase: '© 2025 Jenkin. Based in Tokyo, Japan.',
@@ -77,7 +99,9 @@
           navAriaLabel: 'Main navigation',
           langSwitcherAria: 'Language switcher',
           navWork: 'work',
-          navContact: 'contact',
+          navAbout: 'About',
+          brandRole: 'Film Editor & AI Visual Creator',
+          navContact: 'About & Contact',
           navAds: 'Inspiration',
           adsHeading: 'Inspiration Collection (filter by category / click a cover to open the player)',
           adsNote: 'Curated from Vimeo Staff Picks, Runway AI Film Festival, award-winning films, and personal Instagram saves to match the tone of this portfolio. They are not original projects on this site.',
@@ -89,12 +113,21 @@
           filterDoc: 'Branded Doc',
           filterAI: 'AI Film',
           filterInstagram: 'Instagram Saves',
+          instagramThemeAria: 'Filter Instagram saves by subject',
+          instagramThemeAll: 'All',
+          instagramThemeFashion: 'Fashion',
+          instagramThemeSport: 'Sport',
+          instagramThemeCity: 'City',
+          instagramThemePerformance: 'Performance',
+          instagramThemeCreative: 'Creative',
           badge_sport: 'Sport',
           badge_auto: 'Auto',
           badge_fashion: 'Fashion',
           badge_doc: 'Branded Doc',
           badge_ai: 'AI Film',
           badge_instagram: 'Instagram Saves',
+          instagramReelAria: 'Open Instagram Reel',
+          openInstagram: 'Watch on Instagram ↗',
           lightboxAria: 'Video player',
           closePlayer: 'Close player',
           footerBase: '© 2025 Jenkin. Based in Tokyo, Japan.',
@@ -131,6 +164,9 @@
     }
     .filter-btn.active, .filter-btn:hover { background: rgba(212,160,23,.18); color:#fff; }
     .filter-btn:focus-visible { outline:2px solid rgba(212,160,23,.6); outline-offset:2px; }
+    .instagram-subfilters { display:flex; flex-wrap:wrap; gap:8px; margin:-10px 0 24px; }
+    .instagram-subfilters__button { padding:5px 10px; border:0; border-bottom:1px solid rgba(212,160,23,.42); background:transparent; color:var(--text-muted); font-size:.78rem; cursor:pointer; }
+    .instagram-subfilters__button:hover, .instagram-subfilters__button.is-active { color:var(--accent-colour); border-bottom-color:var(--accent-colour); }
 
     /* 4 列网格（随宽度自适应） */
     .ads-grid {
@@ -165,6 +201,32 @@
       position:absolute; top:10px; left:10px; font-size:.75rem; padding:3px 8px;
       border-radius:999px; background: rgba(212,160,23,.85); color:#0c0c0f; font-weight:700; letter-spacing:.04em;
     }
+    .grid-item--instagram { background: #151515; }
+    .instagram-card {
+      position: relative;
+      display: flex;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 18px;
+      border: 1px solid rgba(212,160,23,.38);
+      overflow: hidden;
+      background: radial-gradient(circle at 78% 22%, rgba(212,160,23,.22), transparent 30%), #151515;
+      color: var(--text-colour);
+      transition: background .25s ease, border-color .25s ease;
+    }
+    .instagram-card__cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: none; transition: filter .25s ease, transform .35s ease; }
+    .grid-item--instagram:hover .instagram-card__cover { filter: brightness(.72) saturate(1.08); transform: scale(1.03); }
+    .instagram-card__copy { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; }
+    .instagram-card:has(.instagram-card__cover)::after { position: absolute; inset: 0; content: ''; background: linear-gradient(180deg, rgba(0,0,0,.52), transparent 45%, rgba(0,0,0,.76)); }
+    .grid-item--instagram:hover .instagram-card,
+    .grid-item--instagram:focus-visible .instagram-card {
+      border-color: rgba(212,160,23,.82);
+      background: radial-gradient(circle at 78% 22%, rgba(212,160,23,.35), transparent 34%), #1a1a1a;
+    }
+    .instagram-card__play { display:grid; width:44px; height:44px; place-items:center; padding-left:3px; border:1px solid rgba(255,255,255,.62); border-radius:50%; background:rgba(0,0,0,.32); color:#fff; font-size:.9rem; opacity:0; transition:opacity .2s ease, transform .2s ease; }
+    .grid-item--instagram:hover .instagram-card__play, .grid-item--instagram:focus-visible .instagram-card__play { opacity:1; transform:scale(1.06); }
 
     /* 弹窗播放器（Lightbox） */
     .lightbox {
@@ -180,6 +242,7 @@
     .player-frame iframe, .player-frame video{
       position:absolute; inset:0; width:100%; height:100%; border:0; background:#000;
     }
+    .player-frame--portrait{ width:min(430px, 92vw); aspect-ratio:9 / 16; }
     .player-frame__external {
       position:absolute; left:50%; bottom:16px; transform:translateX(-50%); z-index:1;
       padding:8px 12px; border-radius:999px; background:rgba(0,0,0,.72);
@@ -216,6 +279,7 @@
     <a class="logo" href="index.html" aria-label="JENKIN Workshop ホームに戻る" data-i18n-aria-label="logoAriaLabel">
       <span class="logo__text">JENKIN</span>
       <span class="logo__sub">Workshop</span>
+      <span class="logo__role" data-i18n="brandRole">Film Editor &amp; AI Visual Creator</span>
     </a>
     <nav class="site-nav" aria-label="メインナビゲーション" data-i18n-aria-label="navAriaLabel">
       <a href="index.html" class="site-nav__link" data-i18n="navWork">作品</a>
@@ -244,10 +308,20 @@
   <button class="filter-btn" data-filter="ai"      role="tab" aria-selected="false" data-i18n="filterAI">AI 映像</button>
   <button class="filter-btn" data-filter="instagram" role="tab" aria-selected="false" data-i18n="filterInstagram">Instagram 保存</button>
 </div>
+<div id="instagram-subfilters" class="instagram-subfilters" role="group" aria-label="Instagram theme filters" data-i18n-aria-label="instagramThemeAria" hidden>
+  <button class="instagram-subfilters__button is-active" type="button" data-instagram-theme="all" aria-pressed="true" data-i18n="instagramThemeAll">すべて</button>
+  <button class="instagram-subfilters__button" type="button" data-instagram-theme="fashion" aria-pressed="false" data-i18n="instagramThemeFashion">ファッション</button>
+  <button class="instagram-subfilters__button" type="button" data-instagram-theme="sport" aria-pressed="false" data-i18n="instagramThemeSport">スポーツ</button>
+  <button class="instagram-subfilters__button" type="button" data-instagram-theme="city" aria-pressed="false" data-i18n="instagramThemeCity">都市</button>
+  <button class="instagram-subfilters__button" type="button" data-instagram-theme="performance" aria-pressed="false" data-i18n="instagramThemePerformance">パフォーマンス</button>
+  <button class="instagram-subfilters__button" type="button" data-instagram-theme="creative" aria-pressed="false" data-i18n="instagramThemeCreative">クリエイティブ</button>
+</div>
 
 
     <!-- 4 列广告网格：data-category 标记类型；data-* 提供播放源 -->
 <section class="ads-grid">
+  <span id="instagram-reel-anchor" hidden></span>
+
   <article class="grid-item" data-category="sport" data-type="vimeo" data-id="1123469874">
     <img class="thumb" src="assets/insp-01-puma.jpg" alt="PUMA x Hello Sunrise | Horizon Running Club" loading="lazy" decoding="async">
     <span class="overlay">
@@ -582,20 +656,92 @@
     <button class="lb-close" id="lbClose" aria-label="Close" data-i18n-aria-label="closePlayer">✕</button>
   </div>
 
+  <script src="instagram-reels.js"></script>
+  <script src="instagram-reels-extra.js"></script>
+  <script>
+    (() => {
+      const anchor = document.getElementById('instagram-reel-anchor');
+      const reels = Array.isArray(window.JENKIN_INSTAGRAM_REELS) ? window.JENKIN_INSTAGRAM_REELS : [];
+      if (!anchor || !reels.length) return;
+
+      const fragment = document.createDocumentFragment();
+      reels.forEach((reel) => {
+        const url = String(reel?.url || '').replace(/[?#].*$/, '');
+        const match = url.match(/instagram\.com\/(reel|reels|p)\/([A-Za-z0-9_-]+)/i);
+        if (!match) return;
+
+        const card = document.createElement('article');
+        card.className = 'grid-item grid-item--instagram';
+        card.dataset.category = 'instagram';
+        card.dataset.type = 'instagram';
+        card.dataset.url = url;
+        card.dataset.instagramTheme = String(reel.theme || 'creative').toLowerCase();
+        card.tabIndex = 0;
+        card.setAttribute('role', 'button');
+        card.setAttribute('data-i18n-aria-label', 'instagramReelAria');
+        card.setAttribute('aria-label', 'Open Instagram Reel');
+
+        const visual = document.createElement('div');
+        visual.className = 'instagram-card';
+        if (reel.cover) {
+          const cover = document.createElement('img');
+          cover.className = 'instagram-card__cover';
+          cover.src = reel.cover;
+          cover.alt = '';
+          cover.loading = 'lazy';
+          cover.decoding = 'async';
+          cover.referrerPolicy = 'no-referrer';
+          cover.addEventListener('error', () => cover.remove());
+          visual.append(cover);
+        }
+
+        const copy = document.createElement('div');
+        copy.className = 'instagram-card__copy';
+        copy.innerHTML = '<span class="instagram-card__play" aria-hidden="true">▶</span>';
+        visual.append(copy);
+        card.append(visual);
+        fragment.append(card);
+      });
+      anchor.before(fragment);
+    })();
+  </script>
   <script>
     /* —— 筛选逻辑 —— */
     const filterBtns = document.querySelectorAll('.filter-btn');
+    const instagramThemeBar = document.getElementById('instagram-subfilters');
+    const instagramThemeBtns = document.querySelectorAll('[data-instagram-theme]');
     const cards = document.querySelectorAll('.grid-item');
+    let activeCategory = 'all';
+    let activeInstagramTheme = 'all';
 
-    filterBtns.forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        filterBtns.forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
-        btn.classList.add('active'); btn.setAttribute('aria-selected','true');
-        const f = String(btn.dataset.filter || '').toLowerCase();
-        cards.forEach(c=>{
-          const category = String(c.dataset.category || '').toLowerCase();
-          c.style.display = (f === 'all' || category === f) ? '' : 'none';
-        });
+    function applyFilters() {
+      const showInstagramThemes = activeCategory === 'instagram';
+      instagramThemeBar.hidden = !showInstagramThemes;
+      cards.forEach((card) => {
+        const category = String(card.dataset.category || '').toLowerCase();
+        const theme = String(card.dataset.instagramTheme || '').toLowerCase();
+        const matchesCategory = activeCategory === 'all' || category === activeCategory;
+        const matchesTheme = !showInstagramThemes || activeInstagramTheme === 'all' || theme === activeInstagramTheme;
+        card.style.display = matchesCategory && matchesTheme ? '' : 'none';
+      });
+    }
+
+    filterBtns.forEach((button) => {
+      button.addEventListener('click', () => {
+        filterBtns.forEach((item) => { item.classList.remove('active'); item.setAttribute('aria-selected', 'false'); });
+        button.classList.add('active');
+        button.setAttribute('aria-selected', 'true');
+        activeCategory = String(button.dataset.filter || 'all').toLowerCase();
+        applyFilters();
+      });
+    });
+    instagramThemeBtns.forEach((button) => {
+      button.addEventListener('click', () => {
+        instagramThemeBtns.forEach((item) => { item.classList.remove('is-active'); item.setAttribute('aria-pressed', 'false'); });
+        button.classList.add('is-active');
+        button.setAttribute('aria-pressed', 'true');
+        activeInstagramTheme = String(button.dataset.instagramTheme || 'all').toLowerCase();
+        applyFilters();
       });
     });
 
@@ -603,14 +749,16 @@
     const lb = document.getElementById('lightbox');
     const frame = document.getElementById('playerFrame');
     const closeBtn = document.getElementById('lbClose');
-    function openLightbox(html){
+    function openLightbox(html, variant = ''){
       frame.innerHTML = html;
+      frame.classList.toggle('player-frame--portrait', variant === 'portrait');
       lb.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
     function closeLightbox(){
       lb.classList.remove('open');
       frame.innerHTML = '';
+      frame.classList.remove('player-frame--portrait');
       document.body.style.overflow = '';
     }
     lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLightbox(); });
@@ -660,14 +808,25 @@
                    allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
            <a class="player-frame__external" href="https://www.youtube.com/watch?v=${ytId}" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>`
         );
-      } else if (type === 'instagram') {
-        const match = String(url || '').match(/^https?:\/\/(?:www\.)?instagram\.com\/(?:reel|reels|p)\/([A-Za-z0-9_-]+)/i);
-        if (!match) return;
-        const shortcode = match[1];
+      } else if (type === 'dailymotion') {
+        const dmId = String(id || '').trim();
+        if (!/^[A-Za-z0-9_-]+$/.test(dmId)) return;
         openLightbox(
-          `<iframe src="https://www.instagram.com/reel/${shortcode}/embed/captioned/"
+          `<iframe src="https://geo.dailymotion.com/player.html?video=${dmId}&autoplay=1&mute=0&controls=1"
+                   allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+           <a class="player-frame__external" href="https://www.dailymotion.com/video/${dmId}" target="_blank" rel="noopener noreferrer">Open on Dailymotion ↗</a>`
+        );
+      } else if (type === 'instagram') {
+        const match = String(url || '').match(/^https?:\/\/(?:www\.)?instagram\.com\/(reel|reels|p)\/([A-Za-z0-9_-]+)/i);
+        if (!match) return;
+        const mediaPath = match[1].toLowerCase() === 'p' ? 'p' : 'reel';
+        const shortcode = match[2];
+        const externalLabel = window.SiteI18n?.t('openInstagram') || 'Watch on Instagram ↗';
+        openLightbox(
+          `<iframe src="https://www.instagram.com/${mediaPath}/${shortcode}/embed/captioned/"
                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-           <a class="player-frame__external" href="https://www.instagram.com/reel/${shortcode}/" target="_blank" rel="noopener noreferrer">Open on Instagram ↗</a>`
+           <a class="player-frame__external" href="https://www.instagram.com/${mediaPath}/${shortcode}/" target="_blank" rel="noopener noreferrer">${externalLabel}</a>`,
+          'portrait'
         );
       } else if (type === 'mp4' && src) {
         openLightbox(
@@ -702,6 +861,7 @@
         return `https://vumbnail.com/${vimeoId}.jpg`;
       }
       async function hydrate(card){
+        if (card.dataset.type === 'instagram') return;
         const img = card.querySelector('.thumb'); if(!img || img.dataset.hydrated==='1') return;
         const currentSrc = img.getAttribute('src') || '';
         const usesPlaceholder = /(^|\/)placeholder\.png$/i.test(currentSrc);
@@ -745,7 +905,7 @@
   }
 
   updateBadgeText();
-  window.addEventListener('site-languagechange', updateBadgeText);
+  document.addEventListener('site-languagechange', updateBadgeText);
 })();
 </script>
 </body>

@@ -615,6 +615,12 @@ button {
   opacity: 0.5;
 }
 
+.site-footer__icp {
+  margin-top: var(--space-sm);
+  font-size: 0.82em;
+  letter-spacing: 0.02em;
+}
+
 /* ===== Responsive Adjustments ===== */
 @media (max-width: 1024px) {
   .site-nav {
